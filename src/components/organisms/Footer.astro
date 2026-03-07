@@ -1,0 +1,39 @@
+---
+import ContactItem from '../molecules/ContactItem.astro';
+import HoursRow from '../molecules/HoursRow.astro';
+---
+
+<footer class="bg-stone-800 text-stone-300 py-12 px-6">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-10">
+        <div>
+            <h3 class="text-white text-lg font-semibold mb-3">Helens Fotvård</h3>
+            <p class="text-stone-400 leading-relaxed">
+                Professionell fotvård med omtanke och erfarenhet.
+            </p>
+        </div>
+
+        <div>
+            <h3 class="text-white text-lg font-semibold mb-3">Kontakt</h3>
+            <address class="not-italic text-stone-400 space-y-1 leading-relaxed">
+                <ContactItem value="070-000 00 00" href="tel:+46700000000" />
+                <ContactItem value="helen@helensfotvard.se" href="mailto:helen@helensfotvard.se" />
+                <ContactItem value="Exempelgatan 1, 123 45 Stad" />
+            </address>
+        </div>
+
+        <div>
+            <h3 class="text-white text-lg font-semibold mb-3">Öppettider</h3>
+            <dl class="text-stone-400 space-y-1">
+                <HoursRow day="Mån–fre" time="09:00–17:00" />
+                <HoursRow day="Lördag" time="10:00–14:00" />
+                <HoursRow day="Söndag" time="Stängt" closed />
+            </dl>
+        </div>
+    </div>
+
+    <div
+        class="max-w-5xl mx-auto mt-10 pt-6 border-t border-stone-700 text-stone-500 text-sm text-center"
+    >
+        &copy; {new Date().getFullYear()} Helens Fotvård. Alla rättigheter förbehållna.
+    </div>
+</footer>

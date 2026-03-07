@@ -1,21 +1,20 @@
 ---
-import Footer from '../components/Header/Footer/Footer.astro';
-import Header from '../components/Header/Header.svelte';
-import Welcome from '../components/Welcome.astro';
-import Counter from '../components/Counter/Counter.svelte';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import HeroSection from '../components/organisms/HeroSection.astro';
+import ServicesSection from '../components/organisms/ServicesSection.astro';
+import AboutSection from '../components/organisms/AboutSection.astro';
+import ContactSection from '../components/organisms/ContactSection.astro';
 ---
 
 <Layout>
-    <Header>This is Header</Header>
-    <Welcome />
-
-    <Counter client:visible />
-
-    <Footer>
-        <p>This is footer</p>
-    </Footer>
+    <HeroSection
+        eyebrow="Välkommen"
+        title="Helens Fotvård"
+        subtitle="Professionell och omtänksam fotvård i en lugn och välkomnande miljö. Vi tar hand om dina fötter med omsorg och erfarenhet."
+        ctaHref="#kontakt"
+        ctaText="Boka tid"
+    />
+    <ServicesSection />
+    <AboutSection />
+    <ContactSection />
 </Layout>

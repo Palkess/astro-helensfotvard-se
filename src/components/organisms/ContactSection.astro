@@ -1,0 +1,45 @@
+---
+import SectionHeader from '../molecules/SectionHeader.astro';
+import ContactItem from '../molecules/ContactItem.astro';
+import HoursRow from '../molecules/HoursRow.astro';
+---
+
+<section id="kontakt" class="py-24 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+        <SectionHeader
+            title="Kontakt & öppettider"
+            subtitle="Ring eller mejla oss för att boka en tid som passar dig."
+        />
+
+        <div class="grid md:grid-cols-2 gap-10">
+            <div class="bg-blue-50 rounded-2xl p-10 border border-stone-100">
+                <h3 class="text-2xl font-semibold text-stone-900 mb-6">Kontaktuppgifter</h3>
+                <dl class="space-y-5 text-lg">
+                    <ContactItem label="Telefon" value="070-000 00 00" href="tel:+46700000000" />
+                    <ContactItem
+                        label="E-post"
+                        value="helen@helensfotvard.se"
+                        href="mailto:helen@helensfotvard.se"
+                    />
+                    <div>
+                        <dt class="font-medium text-stone-800">Adress</dt>
+                        <dd class="text-stone-600 mt-1">Exempelgatan 1<br />123 45 Stad</dd>
+                    </div>
+                </dl>
+            </div>
+
+            <div class="bg-blue-50 rounded-2xl p-10 border border-stone-100">
+                <h3 class="text-2xl font-semibold text-stone-900 mb-6">Öppettider</h3>
+                <dl class="space-y-4 text-lg text-stone-600">
+                    <HoursRow day="Måndag" time="09:00–17:00" bordered highlight />
+                    <HoursRow day="Tisdag" time="09:00–17:00" bordered highlight />
+                    <HoursRow day="Onsdag" time="09:00–17:00" bordered highlight />
+                    <HoursRow day="Torsdag" time="09:00–17:00" bordered highlight />
+                    <HoursRow day="Fredag" time="09:00–17:00" bordered highlight />
+                    <HoursRow day="Lördag" time="10:00–14:00" bordered highlight />
+                    <HoursRow day="Söndag" time="Stängt" closed highlight />
+                </dl>
+            </div>
+        </div>
+    </div>
+</section>

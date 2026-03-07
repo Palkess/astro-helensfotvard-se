@@ -1,0 +1,23 @@
+---
+interface Props {
+    label?: string;
+    value: string;
+    href?: string;
+}
+const { label, value, href } = Astro.props;
+---
+
+<div>
+    {label && <dt class="font-medium text-stone-800">{label}</dt>}
+    <dd class={label ? 'text-stone-600 mt-1' : 'text-stone-400'}>
+        {
+            href ? (
+                <a href={href} class="hover:text-green-700 transition-colors">
+                    {value}
+                </a>
+            ) : (
+                value
+            )
+        }
+    </dd>
+</div>
