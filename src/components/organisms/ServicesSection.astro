@@ -1,46 +1,21 @@
 ---
+import { services } from '../../data/services';
 import SectionHeader from '../molecules/SectionHeader.astro';
 import ServiceCard from '../molecules/ServiceCard.astro';
-
-const services = [
-    {
-        title: 'Fotvård',
-        desc: 'Grundlig behandling av hård hud, förhårdnader och liktornar för friskare och bekvämare fötter.',
-        icon: '🦶'
-    },
-    {
-        title: 'Nagelvård',
-        desc: 'Professionell klippning och filning av naglar, anpassad efter dina behov och önskemål.',
-        icon: '✂️'
-    },
-    {
-        title: 'Inåtväxta naglar',
-        desc: 'Skonsom behandling av inåtväxta naglar med råd om hur du förebygger problemet framöver.',
-        icon: '🩹'
-    },
-    {
-        title: 'Diabetesfot',
-        desc: 'Specialiserad fotvård för dig med diabetes – med extra omsorg, noggrannhet och försiktighet.',
-        icon: '💚'
-    },
-    {
-        title: 'Svampbehandling',
-        desc: 'Behandling och rådgivning vid nagel- och hudsvamp på fötterna.',
-        icon: '🌿'
-    },
-    {
-        title: 'Rådgivning',
-        desc: 'Personlig rådgivning om fotvård och hur du bäst tar hand om dina fötter i vardagen.',
-        icon: '💬'
-    }
-];
 ---
 
 <section id="tjanster" class="py-24 px-6 bg-white">
     <div class="max-w-5xl mx-auto">
         <SectionHeader title="Våra tjänster" subtitle="Vi erbjuder ett brett utbud av behandlingar för dina fötter." />
         <div class="grid md:grid-cols-3 gap-8">
-            {services.map((s) => <ServiceCard icon={s.icon} title={s.title} desc={s.desc} />)}
+            {services.map((s) => (
+                <ServiceCard
+                    icon={s.icon}
+                    title={s.title}
+                    desc={s.desc}
+                    href={'/tjanster/' + s.slug}
+                />
+            ))}
         </div>
     </div>
 </section>

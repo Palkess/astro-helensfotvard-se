@@ -1,0 +1,62 @@
+---
+import { services } from '../../data/services';
+import Layout from '../../layouts/Layout.astro';
+
+export function getStaticPaths() {
+    return services.map((service) => ({
+        params: { slug: service.slug },
+        props: { service }
+    }));
+}
+
+const { service } = Astro.props;
+---
+
+<Layout>
+    <main class="min-h-screen bg-stone-50">
+        <!-- Hero: split layout — text left, image right -->
+        <section class="bg-white border-b border-stone-200">
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 min-h-[420px]">
+                <!-- Text side -->
+                <div class="flex flex-col justify-center px-6 py-16 md:pr-12">
+                    <a
+                        href="/#tjanster"
+                        class="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-800 transition-colors mb-6">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-3.5 w-3.5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 19l-7-7 7-7" />
+                        </svg>
+                        Alla tjänster
+                    </a>
+                    <h1 class="text-4xl font-semibold text-stone-900 mb-5">{service.title}</h1>
+                    <p class="text-lg text-stone-600 leading-relaxed mb-8">{service.longDesc}</p>
+                    <div>
+                        <a
+                            href="/#kontakt"
+                            class="inline-block rounded-lg bg-green-700 px-6 py-3 font-medium text-white transition-colors hover:bg-green-800">
+                            Boka tid
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image side -->
+                <div class="relative min-h-[280px] md:min-h-0 bg-stone-200 overflow-hidden">
+                    <img
+                        src={service.heroImage}
+                        alt={service.title}
+                        class="absolute inset-0 w-full h-full object-cover"
+                        loading="eager"
+                    />
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
