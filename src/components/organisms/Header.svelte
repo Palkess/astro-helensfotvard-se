@@ -5,7 +5,7 @@
     let menuOpen = $state(false);
     let servicesOpen = $state(false);
     let mobileServicesOpen = $state(false);
-    let navWrapper: HTMLDivElement;
+    let navWrapper: HTMLElement;
     let currentPath = $state('');
 
     $effect(() => {
@@ -61,12 +61,14 @@
     <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
         <a href="/" class="text-2xl font-semibold tracking-wide text-stone-800">Helens Fotvård</a>
 
-        <nav class="hidden items-center gap-10 text-lg text-stone-600 md:flex" bind:this={navWrapper}>
+        <nav
+            class="hidden items-center gap-10 text-lg text-stone-600 md:flex"
+            bind:this={navWrapper}>
             <!-- Tjänster dropdown trigger -->
             <div class="relative">
                 <button
                     onclick={toggleServices}
-                    aria-haspopup="list"
+                    aria-haspopup="true"
                     aria-expanded={servicesOpen}
                     class="flex items-center gap-1 transition-colors hover:text-green-700 {isServiceActive()
                         ? 'font-semibold text-green-700'
@@ -87,22 +89,23 @@
                 </button>
 
                 {#if servicesOpen}
-                    <div
-                        class="absolute left-0 top-full mt-2 w-52 rounded-lg border border-stone-100 bg-white shadow-md"
+                    <ul
+                        class="absolute top-full left-0 mt-2 w-52 rounded-lg border border-stone-100 bg-white shadow-md"
                         role="list">
                         {#each services as service}
-                            <a
-                                href={'/tjanster/' + service.slug}
-                                role="listitem"
-                                onclick={closeServices}
-                                class="block px-4 py-3 text-base text-stone-700 transition-colors first:rounded-t-lg last:rounded-b-lg hover:bg-stone-50 hover:text-green-700 {currentPath ===
-                                '/tjanster/' + service.slug
-                                    ? 'font-semibold text-green-700 bg-stone-50'
-                                    : ''}">
-                                {service.title}
-                            </a>
+                            <li>
+                                <a
+                                    href={'/tjanster/' + service.slug}
+                                    onclick={closeServices}
+                                    class="block px-4 py-3 text-base text-stone-700 transition-colors first:rounded-t-lg last:rounded-b-lg hover:bg-stone-50 hover:text-green-700 {currentPath ===
+                                    '/tjanster/' + service.slug
+                                        ? 'bg-stone-50 font-semibold text-green-700'
+                                        : ''}">
+                                    {service.title}
+                                </a>
+                            </li>
                         {/each}
-                    </div>
+                    </ul>
                 {/if}
             </div>
 
