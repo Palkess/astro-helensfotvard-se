@@ -6,16 +6,21 @@ import ServiceCard from '../molecules/ServiceCard.astro';
 
 <section id="tjanster" class="py-24 px-6 bg-white">
     <div class="max-w-5xl mx-auto">
-        <SectionHeader title="Våra tjänster" subtitle="Vi erbjuder ett brett utbud av behandlingar för dina fötter." />
+        <SectionHeader
+            title="Våra tjänster"
+            subtitle="Vi erbjuder ett brett utbud av behandlingar för dina fötter."
+        />
         <div class="grid md:grid-cols-3 gap-8">
-            {services.map((s) => (
-                <ServiceCard
-                    icon={s.icon}
-                    title={s.title}
-                    desc={s.desc}
-                    href={'/tjanster/' + s.slug}
-                />
-            ))}
+            {
+                services.map((s) => (
+                    <ServiceCard
+                        icon={s.icon}
+                        title={s.title}
+                        desc={s.desc}
+                        href={'/tjanster/' + s.slug}
+                    />
+                ))
+            }
         </div>
     </div>
 </section>
