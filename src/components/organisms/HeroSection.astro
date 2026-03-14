@@ -1,5 +1,6 @@
 ---
-import Button from '../atoms/Button.svelte';
+import { Picture } from 'astro:assets';
+import heroImage from '../../assets/images/services/medicinsk-fotvard.jpg';
 
 interface Props {
     eyebrow: string;
@@ -11,15 +12,83 @@ interface Props {
 const { eyebrow, title, subtitle, ctaHref, ctaText } = Astro.props;
 ---
 
-<section class="bg-blue-50 py-28 px-6 text-center">
-    <div class="max-w-3xl mx-auto">
-        <p class="text-blue-800 font-medium text-lg mb-4 tracking-wide uppercase">{eyebrow}</p>
-        <h1 class="text-5xl md:text-6xl font-semibold text-stone-900 mb-6 leading-tight">
-            {title}
-        </h1>
-        <p class="text-xl text-stone-600 mb-10 leading-relaxed max-w-xl mx-auto">
-            {subtitle}
-        </p>
-        <Button href={ctaHref}>{ctaText}</Button>
+<section class="relative overflow-hidden bg-stone-50 min-h-[88vh] flex flex-col md:grid md:grid-cols-2">
+    <!-- Text column -->
+    <div class="flex justify-end items-center px-6 py-20">
+        <div class="w-full max-w-xl md:pr-12 lg:pr-16">
+            <p class="text-sm font-semibold tracking-widest uppercase text-primary mb-5">
+                {eyebrow}
+            </p>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold text-stone-900 leading-tight mb-6">
+                {title}
+            </h1>
+            <p class="text-lg text-stone-600 leading-relaxed mb-10 max-w-lg">
+                {subtitle}
+            </p>
+            <div>
+                <a
+                    href={ctaHref}
+                    class="inline-block rounded-xl bg-primary px-10 py-4 text-lg font-medium text-white hover:bg-blue-900 transition-colors shadow-sm">
+                    {ctaText}
+                </a>
+            </div>
+
+            <!-- Trust indicators -->
+            <div class="mt-12 pt-8 border-t border-stone-200 flex flex-wrap gap-8">
+                <div class="flex items-center gap-3 text-stone-500 text-sm">
+                    <svg
+                        class="w-5 h-5 text-primary flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true">
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z">
+                        </path>
+                    </svg>
+                    Certifierad medicinsk fotvårdare
+                </div>
+                <div class="flex items-center gap-3 text-stone-500 text-sm">
+                    <svg
+                        class="w-5 h-5 text-primary flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true">
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                        </path>
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z">
+                        </path>
+                    </svg>
+                    Borgholm, Öland
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image column -->
+    <div class="relative h-72 md:h-auto overflow-hidden">
+        <Picture
+            src={heroImage}
+            alt="Medicinsk fotvård hos Helens Fotvård"
+            widths={[600, 900, 1200]}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            formats={['avif', 'webp']}
+            class="absolute inset-0 w-full h-full object-cover"
+            loading="eager"
+        />
+        <!-- Gradient fade to blend into background on desktop -->
+        <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-stone-50 to-transparent hidden md:block">
+        </div>
     </div>
 </section>
