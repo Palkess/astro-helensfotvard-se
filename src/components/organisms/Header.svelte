@@ -113,14 +113,14 @@
             </div>
 
             <a
-                href="#om-oss"
+                href="/#om-oss"
                 class="hover:text-primary transition-colors duration-300 {isActive('#om-oss')
                     ? 'text-primary font-semibold'
                     : ''}">
                 Om oss
             </a>
             <a
-                href="#kontakt"
+                href="/#kontakt"
                 class="hover:text-primary transition-colors duration-300 {isActive('#kontakt')
                     ? 'text-primary font-semibold'
                     : ''}">
@@ -130,7 +130,7 @@
 
         <!-- CTA — right -->
         <div class="hidden flex-1 justify-end md:flex">
-            <Button href="#kontakt" size="sm" variant="outline">
+            <Button href="/#kontakt" size="sm" variant="outline">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-4 w-4"
@@ -225,19 +225,19 @@
             {/if}
 
             <a
-                href="#om-oss"
+                href="/#om-oss"
                 onclick={closeMenu}
                 class="hover:text-primary py-3 transition-colors duration-300">
                 Om oss
             </a>
             <a
-                href="#kontakt"
+                href="/#kontakt"
                 onclick={closeMenu}
                 class="hover:text-primary py-3 transition-colors duration-300">
                 Kontakt
             </a>
             <a
-                href="#kontakt"
+                href="/#kontakt"
                 onclick={closeMenu}
                 class="border-primary text-primary hover:bg-primary mt-2 inline-flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-center font-medium transition-colors duration-300 hover:text-white">
                 <svg
