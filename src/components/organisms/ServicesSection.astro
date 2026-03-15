@@ -10,14 +10,14 @@ import ServiceCard from '../molecules/ServiceCard.astro';
             title="Våra tjänster"
             subtitle="Vi erbjuder ett brett utbud av behandlingar för dina fötter."
         />
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-2 gap-6">
             {
                 services.map((s) => (
                     <ServiceCard
-                        icon={s.icon}
                         title={s.title}
                         desc={s.desc}
                         href={'/tjanster/' + s.slug}
+                        duration={s.duration}
                     />
                 ))
             }

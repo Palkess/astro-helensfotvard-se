@@ -9,7 +9,6 @@ export interface Service {
     slug: string;
     title: string;
     desc: string;
-    icon: string;
     longDesc: string;
     heroImage: ImageMetadata;
     duration?: string;
@@ -20,7 +19,6 @@ export const services: Service[] = [
         slug: 'medicinsk-fotvard',
         title: 'Medicinsk fotvård',
         desc: 'En skön och grundlig behandling för trötta eller välarbetade fötter – från fotbad till avslutande massage.',
-        icon: '🦶',
         heroImage: medicinskaFootvard,
         duration: 'Ca 60 min',
         longDesc:
@@ -30,7 +28,6 @@ export const services: Service[] = [
         slug: 'fotvard-med-friskvard',
         title: 'Fotvård med friskvård',
         desc: 'Fotvård som räknas som friskvårdsförmån – perfekt för företagsfriskvård.',
-        icon: '✨',
         heroImage: fotvardMedFriskvard,
         duration: 'Ca 60 min',
         longDesc:
@@ -40,7 +37,6 @@ export const services: Service[] = [
         slug: 'nagelklippning',
         title: 'Nagelklippning',
         desc: 'Professionell nagelklippning och nagelvård utförd av utbildade medicinska fotvårdare.',
-        icon: '✂️',
         heroImage: nagelklippning,
         duration: 'Ca 30 min',
         longDesc:
@@ -50,7 +46,6 @@ export const services: Service[] = [
         slug: 'nageltrang',
         title: 'Nageltrång',
         desc: 'Behandling av nageltrång – när nageln växer in i huden och orsakar smärta.',
-        icon: '🩹',
         heroImage: nageltrang,
         longDesc:
             'Nageltrång uppstår när nagelkanten växer in i huden, oftast på stortån. Det kan vara medfött eller uppstå efter en skada som gör att nageln växer snett in mot huden. Behandlingen innebär att den inväxta delen trimmas bort och nageln smalnas av för att förebygga återfall. Våra medicinska fotvårdare behandlar och förebygger ditt nageltrång. Massagen ingår inte i denna behandling.'
