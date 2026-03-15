@@ -5,6 +5,7 @@
     let menuOpen = $state(false);
     let servicesOpen = $state(false);
     let mobileServicesOpen = $state(false);
+    let headerEl: HTMLElement;
     let navWrapper: HTMLElement;
     let currentPath = $state('');
     let activeSection = $state<string | null>(null);
@@ -70,6 +71,37 @@
         servicesOpen = false;
     }
 
+    $effect(() => {
+        if (currentPath !== '/') return;
+
+        function handleAnchorClick(e: MouseEvent) {
+            const anchor = (e.target as HTMLElement).closest(
+                'a[href="/"], a[href^="/#"]',
+            ) as HTMLAnchorElement | null;
+            if (!anchor) return;
+
+            e.preventDefault();
+
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const href = anchor.getAttribute('href')!;
+
+            if (href === '/') {
+                window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+                return;
+            }
+
+            const id = href.slice(2); // strip "/#"
+            const el = document.getElementById(id);
+            if (!el) return;
+
+            const top = el.getBoundingClientRect().top + window.scrollY - headerEl.offsetHeight;
+            window.scrollTo({ top, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+        }
+
+        headerEl.addEventListener('click', handleAnchorClick);
+        return () => headerEl.removeEventListener('click', handleAnchorClick);
+    });
+
     function handleWindowPointerDown(e: PointerEvent) {
         if (navWrapper && !navWrapper.contains(e.target as Node)) {
             servicesOpen = false;
@@ -87,7 +119,7 @@
 
 <svelte:window onpointerdown={handleWindowPointerDown} onkeydown={handleWindowKeydown} />
 
-<header class="bg-surface-base/80 sticky top-0 z-50 backdrop-blur-md">
+<header bind:this={headerEl} class="bg-surface-base/80 sticky top-0 z-50 backdrop-blur-md">
     <div class="mx-auto flex max-w-5xl items-center px-6 py-5">
         <!-- Logo -->
         <div class="flex-1">
