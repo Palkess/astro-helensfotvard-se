@@ -1,47 +1,42 @@
-# CLAUDE.md
+# Helens Fotvård — Claude Code Instructions
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Static marketing site for a Swedish medical foot care clinic (Helens Fotvård) in Borgholm, Öland. Built with Astro 5, Svelte 5, Tailwind CSS 4, and TypeScript. Deploys as a fully static site with no server runtime.
 
-## Commands
+---
+
+## Quick Start
 
 ```sh
-npm run dev       # Start dev server at localhost:4321
-npm run build     # Build production site to ./dist/
-npm run preview   # Preview production build locally
-npm run format    # Format all files with Prettier
+npm install
+npm run dev        # http://localhost:4321
+npm run build      # output to ./dist/
+npm run preview    # preview ./dist/ locally
+npm run format     # run Prettier (do this before committing)
+npx astro check    # TypeScript type checking
 ```
 
-There are no tests configured in this project.
+---
 
-## Architecture
+## Boundaries
 
-This is an **Astro 5** site with **Svelte 5** for interactive components and **Tailwind CSS 4** for styling.
+**Do not modify without explicit human review:**
 
-- **Astro pages** (`src/pages/`) define routes. `index.astro` is the home page.
-- **Layout** (`src/layouts/Layout.astro`) wraps pages with the HTML shell and imports global CSS.
-- **Components** (`src/components/`) follow atomic design and mix `.astro` and `.svelte` files:
-    - Static/server-rendered parts use Astro components
-    - Interactive client-side components use Svelte 5 with runes syntax (`$state()`, `$props()`)
-    - Svelte components used as islands must use a `client:*` directive (e.g. `client:visible`)
-    - **Atoms** (`atoms/`) — smallest reusable elements with no dependencies on other components
-    - **Molecules** (`molecules/`) — small composites built from atoms or plain HTML
-    - **Organisms** (`organisms/`) — full sections and layout components
-    - **Note:** Astro components cannot be imported inside Svelte components. Atoms should always be Svelte components.
+- `src/styles/global.css` — changes to `@theme` tokens affect the entire design system
+- `src/data/services.ts` — single source of truth for all service content; structural changes break dynamic routes
+- `src/layouts/Layout.astro` — changes here affect every page
+- `src/pages/tjanster/[slug].astro` — `getStaticPaths` contract must match `services.ts`
+- URL slugs in `services.ts` and anchor IDs (`#tjanster`, `#kontakt`) — renaming breaks internal navigation
 
-### Key conventions
+---
 
-- **Svelte 5 runes**: Use `$state()` for reactive state, `$props()` for component props, `{@render children()}` for slots/snippets.
-- **Tailwind CSS 4**: Configured via the Vite plugin (`@tailwindcss/vite`), not PostCSS. No `tailwind.config.*` file is needed.
-- **Prettier**: 4-space indent, single quotes, no trailing commas, 100 char print width. Run `npm run format` before committing.
+## Reference Files
 
-### Language
+Consult these files only when the condition applies — do not load all of them by default:
 
-The readable text by visitors to this website should always be in Swedish, while everything in the background should be English.
-
-- For example: If I want to add a console.log to debug any part of interactive code, I want the console message to be in English.
-- For example: If there's a button or link that is visible for the user, it should be in Swedish.
-
-### Website context
-
-This is a website for a podiatrist clinic in Sweden called Helens Fotvård. The design should be calming and neutral, common to other healthcare/podiatrist websites.
-The design should be easy to navigate and read for older people. It should also accessible according to WCAG 2.2 AA.
+- @docs/agent/conventions.md — when writing, editing, or reviewing code
+- @docs/agent/architecture.md — when navigating the codebase or proposing structural changes
+- @docs/agent/decisions.md — when making or evaluating architectural or design choices
+- @docs/agent/bugs.md — when debugging, investigating errors, or working around known issues
+- @docs/agent/workflows.md — when running, building, testing, or deploying
+- @docs/agent/skills.md — when onboarding or assessing unfamiliar parts of the stack
+- @docs/agent/context.md — when writing copy, naming routes, or interpreting domain-specific terms
