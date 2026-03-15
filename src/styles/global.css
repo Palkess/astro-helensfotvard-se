@@ -42,7 +42,7 @@ details[open]::details-content {
 }
 
 @theme {
-    --color-primary: #2c92c3;
+    --color-primary: #167cad;
     --color-primary-dark: #1f6f99;
 
     --color-primary-light: #e8f4fb;
@@ -55,7 +55,7 @@ details[open]::details-content {
 
     --color-text-heading: #1c2b32;
     --color-text-body: #4a5568;
-    --color-text-muted: #718096;
+    --color-text-muted: #67768c;
 
     --color-footer-bg: #1c2b32;
     --color-footer-text: #a8bcc4;
