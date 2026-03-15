@@ -2,18 +2,18 @@
 import ContactItem from '../molecules/ContactItem.astro';
 ---
 
-<footer class="bg-stone-800 text-stone-300 py-12 px-6">
+<footer class="bg-footer-bg text-footer-text py-12 px-6">
     <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-10">
         <div>
             <h3 class="text-white text-lg font-semibold mb-3">Helens Fotvård</h3>
-            <p class="text-stone-400 leading-relaxed">
+            <p class="text-footer-text leading-relaxed">
                 Det naturliga valet för medicinsk fotvård på Öland.
             </p>
         </div>
 
         <div>
             <h3 class="text-white text-lg font-semibold mb-3">Kontakt</h3>
-            <address class="not-italic text-stone-400 space-y-1 leading-relaxed">
+            <address class="not-italic text-footer-text space-y-1 leading-relaxed">
                 <ContactItem value="076-76 76 725" href="tel:+46767676725" />
                 <ContactItem value="helen@helensfotvard.se" href="mailto:helen@helensfotvard.se" />
                 <ContactItem value="Trädgårdsgatan 14, 387 31 Borgholm" />
@@ -22,7 +22,7 @@ import ContactItem from '../molecules/ContactItem.astro';
 
         <div>
             <h3 class="text-white text-lg font-semibold mb-3">Öppettider</h3>
-            <p class="text-stone-400 leading-relaxed text-sm">
+            <p class="text-footer-text leading-relaxed text-sm">
                 Öppettiderna varierar från vecka till vecka. Se aktuella tider på Facebook eller
                 ring oss.
             </p>
@@ -30,7 +30,7 @@ import ContactItem from '../molecules/ContactItem.astro';
     </div>
 
     <div
-        class="max-w-5xl mx-auto mt-10 pt-6 border-t border-stone-700 text-stone-500 text-sm text-center">
+        class="max-w-5xl mx-auto mt-10 pt-6 border-t border-white/10 text-white/40 text-sm text-center">
         &copy; {new Date().getFullYear()} Helens Fotvård. Alla rättigheter förbehållna.
     </div>
 </footer>

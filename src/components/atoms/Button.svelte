@@ -4,19 +4,27 @@
     interface Props {
         href?: string;
         size?: 'sm' | 'lg';
+        variant?: 'solid' | 'outline';
         children: Snippet;
         onClick?: () => void;
     }
-    const { href, size = 'lg', children, onClick }: Props = $props();
+    const { href, size = 'lg', variant = 'solid', children, onClick }: Props = $props();
 
     let cssClass = $derived.by(() => {
-        const baseClass = 'bg-primary text-white hover:bg-blue-900 transition-colors shadow-sm';
+        const variantClass =
+            variant === 'outline'
+                ? 'border border-primary text-primary hover:bg-primary hover:text-white'
+                : 'bg-primary text-white hover:bg-primary-dark shadow-sm';
+
+        const baseClass =
+            variantClass +
+            ' inline-flex items-center gap-2 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary';
 
         switch (size) {
             case 'sm':
-                return baseClass + ' text-base px-5 py-2 rounded-lg ';
+                return baseClass + ' text-base px-5 py-2 rounded-full';
             default:
-                return baseClass + ' text-lg px-10 py-4 rounded-xl ';
+                return baseClass + ' text-lg px-10 py-4 rounded-full';
         }
     });
 </script>

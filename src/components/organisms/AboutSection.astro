@@ -1,55 +1,69 @@
 ---
-
+import { Picture } from 'astro:assets';
+import aboutImage1 from '../../assets/images/services/medicinsk-fotvard.jpg';
+import aboutImage2 from '../../assets/images/services/fotvard-med-friskvard.jpg';
 ---
 
-<section id="om-oss" class="py-24 px-6 bg-stone-50">
-    <div class="max-w-5xl mx-auto">
-        <div class="mb-14">
-            <h2 class="text-4xl font-semibold text-stone-900 mb-5">Om Helens Fotvård</h2>
-            <p class="text-lg text-stone-600 leading-relaxed max-w-2xl">
-                Helens Fotvård grundades den 9 augusti 2009 av Helen Andersson. Sedan februari 2015
-                finns vi på Trädgårdsgatan 14 i Borgholm, dit Jenny Andersson tillkom som utbildad
-                fotvårdare. Tillsammans strävar vi efter att vara det naturliga förstahandsvalet för
-                medicinsk fotvård på Öland.
-            </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-            <!-- Helen -->
-            <div class="bg-white rounded-2xl border border-stone-200 p-8">
-                <h3 class="text-2xl font-semibold text-stone-900 mb-1">Helen Andersson</h3>
-                <p class="text-green-700 font-medium mb-4">Grundare & medicinsk fotvårdare</p>
-                <p class="text-stone-600 leading-relaxed mb-4">
-                    Helen har en lång karriär inom vård och omsorg och utbildade sig till medicinsk
-                    fotvårdsspecialist vid Axelsons Gymnasiska Institut i Malmö 1999. Sedan dess har
-                    hon kontinuerligt vidareutbildat sig inom fotterapi och olika fotåkommor.
-                </p>
-                <p class="text-stone-600 leading-relaxed">
-                    Helen grundade kliniken 2009 med målet att erbjuda professionell och omtänksam
-                    fotvård med vetenskapligt beprövade metoder.
-                </p>
+<section id="om-oss" class="py-24 px-6 bg-surface-base">
+    <div class="max-w-5xl mx-auto space-y-24">
+        <!-- Block 1: image left, text right -->
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="relative overflow-hidden rounded-2xl aspect-4/3">
+                <Picture
+                    src={aboutImage1}
+                    alt="Medicinsk fotvård hos Helens Fotvård"
+                    widths={[400, 800]}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    formats={['avif', 'webp']}
+                    class="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                />
             </div>
-
-            <!-- Jenny -->
-            <div class="bg-white rounded-2xl border border-stone-200 p-8">
-                <h3 class="text-2xl font-semibold text-stone-900 mb-1">Jenny Andersson</h3>
-                <p class="text-green-700 font-medium mb-4">Medicinsk fotvårdare</p>
-                <p class="text-stone-600 leading-relaxed">
-                    Jenny är utbildad medicinsk fotvårdare och anslöt till Helens Fotvård den 3 mars
-                    2015. Med sin kompetens och sitt engagemang bidrar hon till att ge varje patient
-                    bästa möjliga behandling och ett varmt välkomnande.
+            <div>
+                <h2 class="text-3xl font-semibold text-primary mb-6">
+                    Vi hjälper dig med friska och välmående fötter
+                </h2>
+                <p class="text-text-body leading-relaxed mb-4">
+                    Helens Fotvård grundades den 9 augusti 2009 av Helen Andersson. Sedan februari
+                    2015 finns vi på Trädgårdsgatan 14 i Borgholm, dit Jenny Andersson tillkom som
+                    utbildad fotvårdare.
+                </p>
+                <p class="text-text-body leading-relaxed">
+                    Tillsammans strävar vi efter att vara det naturliga förstahandsvalet för
+                    medicinsk fotvård på Öland — med professionell och omtänksam vård grundad i
+                    vetenskapligt beprövade metoder.
                 </p>
             </div>
         </div>
 
-        <div class="bg-white rounded-2xl border border-stone-200 p-8 flex items-start gap-4">
-            <div class="text-2xl mt-0.5">🏅</div>
-            <p class="text-stone-600 leading-relaxed">
-                Både Helen och Jenny är medlemmar i <strong class="text-stone-800">
-                    Sveriges Fotterapeuter
-                </strong> och följer förbundets etiska riktlinjer. Vi har tystnadsplikt och följer Miljöverkets
-                hygienregler. Vår ambition är att alltid hålla hög kompetens genom fortlöpande utbildning.
-            </p>
+        <!-- Block 2: text left, image right -->
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl font-semibold text-primary mb-6">
+                    Professionell fotvård med personlig omtanke
+                </h2>
+                <p class="text-text-body leading-relaxed mb-4">
+                    Helen utbildade sig till medicinsk fotvårdsspecialist vid Axelsons Gymnasiska
+                    Institut i Malmö 1999 och har sedan dess kontinuerligt vidareutbildat sig inom
+                    fotterapi och olika fotåkommor.
+                </p>
+                <p class="text-text-body leading-relaxed">
+                    Jenny anslöt till kliniken 2015 och bidrar med kompetens och engagemang som gör
+                    att varje patient får bästa möjliga behandling. Båda är medlemmar i Sveriges
+                    Fotterapeuter och följer förbundets etiska riktlinjer.
+                </p>
+            </div>
+            <div class="relative overflow-hidden rounded-2xl aspect-4/3">
+                <Picture
+                    src={aboutImage2}
+                    alt="Fotvård med friskvård hos Helens Fotvård"
+                    widths={[400, 800]}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    formats={['avif', 'webp']}
+                    class="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                />
+            </div>
         </div>
     </div>
 </section>

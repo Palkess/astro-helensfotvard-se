@@ -7,6 +7,44 @@ body {
     min-height: 100%;
 }
 
+body {
+    font-family: 'Onest', system-ui, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+}
+
+p {
+    line-height: 1.6;
+}
+
 @theme {
     --color-primary: #2c92c3;
+    --color-primary-dark: #1f6f99;
+
+    --color-primary-light: #e8f4fb;
+
+    --color-surface-base: #fcfcfc;
+    --color-surface-muted: #f0f4f5;
+
+    --color-card: #ffffff;
+    --color-card-border: #e8edef;
+
+    --color-text-heading: #1c2b32;
+    --color-text-body: #4a5568;
+    --color-text-muted: #718096;
+
+    --color-footer-bg: #1c2b32;
+    --color-footer-text: #a8bcc4;
+
+    --color-notice-bg: #fef9ec;
+    --color-notice-border: #f8e4a0;
+    --color-notice-text: #7a5a08;
 }

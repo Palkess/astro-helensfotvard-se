@@ -8,11 +8,11 @@ const { label, value, href } = Astro.props;
 ---
 
 <div>
-    {label && <dt class="font-medium text-stone-800">{label}</dt>}
-    <dd class={label ? 'text-stone-600 mt-1' : 'text-stone-400'}>
+    {label && <dt class="font-medium text-text-heading">{label}</dt>}
+    <dd class={label ? 'text-text-body mt-1' : 'text-footer-text'}>
         {
             href ? (
-                <a href={href} class="hover:text-green-700 transition-colors">
+                <a href={href} class="hover:text-primary transition-colors duration-300">
                     {value}
                 </a>
             ) : (

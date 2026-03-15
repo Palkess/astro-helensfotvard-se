@@ -3,7 +3,7 @@ import SectionHeader from '../molecules/SectionHeader.astro';
 import ContactItem from '../molecules/ContactItem.astro';
 ---
 
-<section id="kontakt" class="py-24 px-6 bg-white">
+<section id="kontakt" class="py-24 px-6 bg-surface-muted">
     <div class="max-w-5xl mx-auto">
         <SectionHeader
             title="Kontakt & bokning"
@@ -11,8 +11,8 @@ import ContactItem from '../molecules/ContactItem.astro';
         />
 
         <div class="grid md:grid-cols-2 gap-10">
-            <div class="bg-stone-50 rounded-2xl p-10 border border-stone-100">
-                <h3 class="text-2xl font-semibold text-stone-900 mb-6">Kontaktuppgifter</h3>
+            <div class="bg-card rounded-2xl p-10 border border-card-border">
+                <h3 class="text-2xl font-semibold text-text-heading mb-6">Kontaktuppgifter</h3>
                 <dl class="space-y-5 text-lg">
                     <ContactItem label="Telefon" value="076-76 76 725" href="tel:+46767676725" />
                     <ContactItem
@@ -26,17 +26,17 @@ import ContactItem from '../molecules/ContactItem.astro';
                         href="mailto:jenny@helensfotvard.se"
                     />
                     <div>
-                        <dt class="font-medium text-stone-800">Adress</dt>
-                        <dd class="text-stone-600 mt-1">
+                        <dt class="font-medium text-text-heading">Adress</dt>
+                        <dd class="text-text-body mt-1">
                             Trädgårdsgatan 14<br />387 31 Borgholm
                         </dd>
                     </div>
                 </dl>
             </div>
 
-            <div class="bg-stone-50 rounded-2xl p-10 border border-stone-100">
-                <h3 class="text-2xl font-semibold text-stone-900 mb-4">Öppettider</h3>
-                <p class="text-stone-600 leading-relaxed mb-6">
+            <div class="bg-card rounded-2xl p-10 border border-card-border">
+                <h3 class="text-2xl font-semibold text-text-heading mb-4">Öppettider</h3>
+                <p class="text-text-body leading-relaxed mb-6">
                     Öppettiderna varierar från vecka till vecka. Aktuella tider hittar du på vår
                     Facebook-sida eller genom att ringa oss.
                 </p>
@@ -44,7 +44,7 @@ import ContactItem from '../molecules/ContactItem.astro';
                     href="https://www.facebook.com/helensfotvard"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-5 py-3 text-stone-700 transition-colors hover:border-stone-300 hover:text-stone-900">
+                    class="inline-flex items-center gap-2 rounded-lg border border-card-border bg-surface-base px-5 py-3 text-text-heading transition-colors duration-300 hover:border-primary/30 hover:text-primary">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="h-5 w-5 text-blue-600"
@@ -58,7 +58,7 @@ import ContactItem from '../molecules/ContactItem.astro';
                 </a>
 
                 <div
-                    class="mt-6 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+                    class="mt-6 rounded-lg border border-notice-border bg-notice-bg px-4 py-3 text-sm text-notice-text">
                     Avbokning och ändringar görs via telefon eller personligt besök – inte via
                     e-post.
                 </div>
