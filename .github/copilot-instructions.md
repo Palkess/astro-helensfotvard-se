@@ -15,7 +15,7 @@ npm run format     # run Prettier (do this before committing)
 npx astro check    # TypeScript type checking
 ```
 
-No ESLint. No test suite. No CI/CD pipeline.
+No ESLint. No test suite. CI/CD via GitHub Actions → GitHub Pages (`.github/workflows/deploy.yml`).
 
 ---
 

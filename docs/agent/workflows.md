@@ -67,7 +67,17 @@ This runs the Astro TypeScript checker across `.astro`, `.svelte`, and `.ts` fil
 
 ## Deployment
 
-No CI/CD is configured. Deployment is manual — build the project and upload `./dist/` to a static host (e.g., Netlify, Vercel, or any static file host).
+Deployment is automated via GitHub Actions and GitHub Pages. The workflow is defined in `.github/workflows/deploy.yml`.
+
+**Trigger:** Any push to `main`, or manually via `workflow_dispatch` in the GitHub Actions UI.
+
+**Pipeline steps:**
+1. `build` job — checks out the repo, installs dependencies with `npm ci`, runs `npm run build`, and uploads `dist/` as a Pages artifact
+2. `deploy` job — deploys the artifact to GitHub Pages using `actions/deploy-pages`
+
+**Concurrency:** Only one deployment runs at a time (group: `pages`). A new push to `main` will cancel any in-progress deployment.
+
+To trigger a manual deploy: go to the repository's **Actions** tab → **Deploy to GitHub Pages** → **Run workflow**.
 
 ---
 
