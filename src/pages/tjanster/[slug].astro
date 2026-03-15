@@ -17,10 +17,10 @@ const { service } = Astro.props;
 <Layout>
     <main class="min-h-screen bg-surface-base">
         <!-- Hero: split layout — text left, image right -->
-        <section class="bg-white border-b border-card-border">
-            <div class="max-w-5xl mx-auto grid md:grid-cols-2 min-h-105">
+        <section class="bg-surface-base">
+            <div class="mx-auto grid max-w-5xl items-center gap-12 px-6 py-20 md:grid-cols-2">
                 <!-- Text side -->
-                <div class="flex flex-col justify-center px-6 py-16 md:pr-12">
+                <div class="flex flex-col justify-center">
                     <a
                         href="/#tjanster"
                         class="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-text-heading transition-colors duration-300 mb-6">
@@ -39,7 +39,12 @@ const { service } = Astro.props;
                         </svg>
                         Alla tjänster
                     </a>
-                    <h1 class="text-4xl font-semibold text-text-heading mb-5">{service.title}</h1>
+                    {service.duration && (
+                        <p class="mb-5 text-sm font-semibold tracking-widest uppercase text-primary">
+                            {service.duration}
+                        </p>
+                    )}
+                    <h1 class="text-4xl font-semibold text-text-heading md:text-5xl mb-5">{service.title}</h1>
                     <p class="text-lg text-text-body leading-relaxed mb-8">{service.longDesc}</p>
                     <div>
                         <Button href="/#kontakt">Boka tid</Button>
@@ -47,18 +52,46 @@ const { service } = Astro.props;
                 </div>
 
                 <!-- Image side -->
-                <div class="relative min-h-70 md:min-h-0 bg-stone-200 overflow-hidden">
+                <div class="relative overflow-hidden rounded-3xl aspect-3/4">
                     <Picture
                         src={service.heroImage}
                         alt={service.title}
                         widths={[400, 800, 1200]}
                         sizes="(max-width: 768px) 100vw, 50vw"
                         formats={['avif', 'webp']}
-                        class="absolute inset-0 w-full h-full object-cover"
+                        class="absolute inset-0 h-full w-full object-cover"
                         loading="eager"
                     />
                 </div>
             </div>
         </section>
+
+        <!-- FAQ -->
+        {service.faq && service.faq.length > 0 && (
+            <section class="bg-surface-muted">
+                <div class="mx-auto max-w-3xl px-6 py-16">
+                    <h2 class="mb-10 text-2xl font-semibold text-text-heading md:text-3xl">Vanliga frågor</h2>
+                    <dl class="space-y-3">
+                        {service.faq.map((item) => (
+                            <details class="group rounded-2xl border border-card-border bg-card px-6 py-5 open:pb-6">
+                                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-medium text-text-heading marker:hidden [&::-webkit-details-marker]:hidden">
+                                    {item.q}
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-4 w-4 shrink-0 text-primary transition-transform duration-200 group-open:rotate-180"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </summary>
+                                <p class="mt-4 text-base leading-relaxed text-text-body">{item.a}</p>
+                            </details>
+                        ))}
+                    </dl>
+                </div>
+            </section>
+        )}
     </main>
 </Layout>
