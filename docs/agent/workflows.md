@@ -21,6 +21,7 @@ All commands are run from the project root.
 | `npm run build` | Build static output to `./dist/` |
 | `npm run preview` | Preview the build locally (serves `./dist/`) |
 | `npm run format` | Run Prettier across all files |
+| `npm run check` | Run TypeScript type checking via `astro check` |
 
 ---
 
@@ -50,14 +51,14 @@ Run `npm run preview` after build to verify the static output before deploying.
 
 Run `npm run format` before committing. This runs Prettier with plugins for Astro, Svelte, and Tailwind class sorting.
 
-There is no lint step — ESLint is not configured. TypeScript type checking is available via `npx astro check`.
+There is no lint step — ESLint is not configured. TypeScript type checking is available via `npm run check`.
 
 ---
 
 ## Type checking
 
 ```sh
-npx astro check
+npm run check
 ```
 
 This runs the Astro TypeScript checker across `.astro`, `.svelte`, and `.ts` files. Run this to catch type errors before committing.
