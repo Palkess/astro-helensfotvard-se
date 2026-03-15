@@ -7,17 +7,47 @@
     let mobileServicesOpen = $state(false);
     let navWrapper: HTMLElement;
     let currentPath = $state('');
+    let activeSection = $state<string | null>(null);
 
     $effect(() => {
         currentPath = window.location.pathname;
     });
 
+    $effect(() => {
+        if (currentPath !== '/') return;
+
+        const sectionIds = ['tjanster', 'om-oss', 'kontakt'] as const;
+        const headerOffset = window.innerHeight * 0.4;
+
+        function updateActiveSection() {
+            let active: string | null = null;
+            for (const id of sectionIds) {
+                const el = document.getElementById(id);
+                if (el && el.getBoundingClientRect().top <= headerOffset) {
+                    active = id;
+                }
+            }
+            activeSection = active;
+        }
+
+        window.addEventListener('scroll', updateActiveSection, { passive: true });
+        updateActiveSection();
+
+        return () => window.removeEventListener('scroll', updateActiveSection);
+    });
+
     function isActive(href: string) {
+        if (href.startsWith('/#')) {
+            return currentPath === '/' && activeSection === href.slice(2);
+        }
         return currentPath === href;
     }
 
     function isServiceActive() {
-        return currentPath.startsWith('/tjanster/');
+        return (
+            currentPath.startsWith('/tjanster/') ||
+            (currentPath === '/' && activeSection === 'tjanster')
+        );
     }
 
     function toggleMenu() {
@@ -114,14 +144,14 @@
 
             <a
                 href="/#om-oss"
-                class="hover:text-primary transition-colors duration-300 {isActive('#om-oss')
+                class="hover:text-primary transition-colors duration-300 {isActive('/#om-oss')
                     ? 'text-primary font-semibold'
                     : ''}">
                 Om oss
             </a>
             <a
                 href="/#kontakt"
-                class="hover:text-primary transition-colors duration-300 {isActive('#kontakt')
+                class="hover:text-primary transition-colors duration-300 {isActive('/#kontakt')
                     ? 'text-primary font-semibold'
                     : ''}">
                 Kontakt
@@ -227,13 +257,17 @@
             <a
                 href="/#om-oss"
                 onclick={closeMenu}
-                class="hover:text-primary py-3 transition-colors duration-300">
+                class="hover:text-primary py-3 transition-colors duration-300 {isActive('/#om-oss')
+                    ? 'text-primary font-semibold'
+                    : ''}">
                 Om oss
             </a>
             <a
                 href="/#kontakt"
                 onclick={closeMenu}
-                class="hover:text-primary py-3 transition-colors duration-300">
+                class="hover:text-primary py-3 transition-colors duration-300 {isActive('/#kontakt')
+                    ? 'text-primary font-semibold'
+                    : ''}">
                 Kontakt
             </a>
             <a
