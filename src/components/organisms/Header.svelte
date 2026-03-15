@@ -86,6 +86,7 @@
             const href = anchor.getAttribute('href')!;
 
             if (href === '/') {
+                history.pushState(null, '', '/');
                 window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
                 return;
             }
@@ -94,6 +95,7 @@
             const el = document.getElementById(id);
             if (!el) return;
 
+            history.pushState(null, '', href);
             const top = el.getBoundingClientRect().top + window.scrollY - headerEl.offsetHeight;
             window.scrollTo({ top, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
         }
