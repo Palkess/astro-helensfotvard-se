@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/organisms/Footer.astro';
 import Header from '../components/organisms/Header.svelte';
+import CookieConsent from '../components/organisms/CookieConsent.svelte';
 import '../styles/global.css';
 ---
 
@@ -29,5 +30,6 @@ import '../styles/global.css';
         <Header client:load />
         <slot />
         <Footer />
+        <CookieConsent client:load />
     </body>
 </html>

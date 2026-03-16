@@ -1,6 +1,7 @@
 <script lang="ts">
     import { services } from '../../data/services';
     import Button from '../atoms/Button.svelte';
+    import { ChevronDown, Phone, X, Menu } from 'lucide-svelte';
 
     let menuOpen = $state(false);
     let servicesOpen = $state(false);
@@ -76,13 +77,15 @@
 
         function handleAnchorClick(e: MouseEvent) {
             const anchor = (e.target as HTMLElement).closest(
-                'a[href="/"], a[href^="/#"]',
+                'a[href="/"], a[href^="/#"]'
             ) as HTMLAnchorElement | null;
             if (!anchor) return;
 
             e.preventDefault();
 
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const prefersReducedMotion = window.matchMedia(
+                '(prefers-reduced-motion: reduce)'
+            ).matches;
             const href = anchor.getAttribute('href')!;
 
             if (href === '/') {
@@ -141,18 +144,9 @@
                         ? 'text-primary font-semibold'
                         : ''}">
                     Tjänster
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
+                    <ChevronDown
                         class="h-4 w-4 transition-transform {servicesOpen ? 'rotate-180' : ''}"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 9l-7 7-7-7" />
-                    </svg>
+                        aria-hidden="true" />
                 </button>
 
                 {#if servicesOpen}
@@ -195,19 +189,7 @@
         <!-- CTA — right -->
         <div class="hidden flex-1 justify-end md:flex">
             <Button href="/#kontakt" size="sm" variant="outline">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    aria-hidden="true">
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
+                <Phone class="h-4 w-4" aria-hidden="true" />
                 Boka tid
             </Button>
         </div>
@@ -219,31 +201,9 @@
             aria-label="Öppna meny"
             aria-expanded={menuOpen}>
             {#if menuOpen}
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-7 w-7"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <X class="h-7 w-7" aria-hidden="true" />
             {:else}
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-7 w-7"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+                <Menu class="h-7 w-7" aria-hidden="true" />
             {/if}
         </button>
     </div>
@@ -258,18 +218,9 @@
                     : ''}"
                 aria-expanded={mobileServicesOpen}>
                 Tjänster
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                <ChevronDown
                     class="h-5 w-5 transition-transform {mobileServicesOpen ? 'rotate-180' : ''}"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 9l-7 7-7-7" />
-                </svg>
+                    aria-hidden="true" />
             </button>
 
             {#if mobileServicesOpen}
@@ -308,18 +259,7 @@
                 href="/#kontakt"
                 onclick={closeMenu}
                 class="border-primary text-primary hover:bg-primary mt-2 inline-flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-center font-medium transition-colors duration-300 hover:text-white">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2">
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
+                <Phone class="h-4 w-4" aria-hidden="true" />
                 Boka tid
             </a>
         </nav>
