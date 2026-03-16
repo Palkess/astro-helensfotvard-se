@@ -8,13 +8,14 @@ Built with Astro 5, Svelte 5, Tailwind CSS 4, and TypeScript. Deploys as a fully
 
 ## Stack
 
-| Technology     | Role                                                    |
-| -------------- | ------------------------------------------------------- |
-| Astro 5        | Static site generation, routing, image optimization     |
-| Svelte 5       | Interactive components (Header, Button)                 |
-| Tailwind CSS 4 | Utility-first styling with CSS-variable design tokens   |
-| TypeScript     | Type safety across all source files                     |
-| Prettier       | Code formatting (Astro, Svelte, Tailwind class sorting) |
+| Technology     | Role                                                     |
+| -------------- | -------------------------------------------------------- |
+| Astro 5        | Static site generation, routing, image optimization      |
+| Svelte 5       | Interactive components (Header, Button)                  |
+| Tailwind CSS 4 | Utility-first styling with CSS-variable design tokens    |
+| TypeScript     | Type safety across all source files                      |
+| Prettier       | Code formatting (Astro, Svelte, Tailwind class sorting)  |
+| lucide-svelte  | Icon components (tree-shaken, used in Svelte components) |
 
 ---
 

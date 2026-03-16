@@ -76,6 +76,20 @@ Consult this file when making or evaluating architectural or design choices, cho
 
 ---
 
+## ADR-006: lucide-svelte for icons
+
+**Date:** 2026-03-16
+**Context:** Icons were hand-coded inline SVGs, making them verbose and error-prone to maintain. Needed a consistent, maintainable icon system compatible with Svelte 5 and Tailwind.
+**Decision:** Use `lucide-svelte` for all icons. Import named components; size and color via Tailwind class attributes.
+**Consequences:**
+
+- Inline SVGs eliminated from Svelte components
+- Vite tree-shakes unused icons — no bundle cost for icons not imported
+- Icon stroke style is consistent (Lucide defaults: `currentColor`, `round` caps/joins)
+- New icons must exist in the Lucide library — custom shapes require a one-off inline SVG with a comment explaining why
+
+---
+
 ## Anti-patterns
 
 - **Global state management library (e.g., Svelte stores across pages):** Not needed — this is a static brochure site with no shared interactive state between sections. Do not introduce unless the site gains significant interactivity.

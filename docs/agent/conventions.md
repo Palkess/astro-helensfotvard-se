@@ -109,6 +109,16 @@ This project uses **Svelte 5**. Use the new runes API — do not use Svelte 3/4 
 
 ---
 
+## Icons
+
+- Use **`lucide-svelte`** components — do not write inline SVGs
+- Import only the icons you need: `import { ChevronDown } from 'lucide-svelte'`
+- Set size via Tailwind class (`class="h-4 w-4"`), not the `size` prop
+- Always set `aria-hidden="true"` on decorative icons; provide an `aria-label` only on standalone icon buttons
+- Do not hardcode SVG attributes — Lucide defaults (`currentColor`, `fill="none"`, etc.) are correct
+
+---
+
 ## Routing
 
 - Pages live in `src/pages/`
