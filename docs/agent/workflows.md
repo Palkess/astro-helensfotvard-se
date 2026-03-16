@@ -14,14 +14,14 @@ Consult this file when running, building, testing, formatting, or deploying the 
 
 All commands are run from the project root.
 
-| Command | Action |
-|---|---|
-| `npm install` | Install dependencies |
-| `npm run dev` | Start dev server at `http://localhost:4321` |
-| `npm run build` | Build static output to `./dist/` |
-| `npm run preview` | Preview the build locally (serves `./dist/`) |
-| `npm run format` | Run Prettier across all files |
-| `npm run check` | Run TypeScript type checking via `astro check` |
+| Command           | Action                                         |
+| ----------------- | ---------------------------------------------- |
+| `npm install`     | Install dependencies                           |
+| `npm run dev`     | Start dev server at `http://localhost:4321`    |
+| `npm run build`   | Build static output to `./dist/`               |
+| `npm run preview` | Preview the build locally (serves `./dist/`)   |
+| `npm run format`  | Run Prettier across all files                  |
+| `npm run check`   | Run TypeScript type checking via `astro check` |
 
 ---
 
@@ -38,6 +38,7 @@ Hot module reload is active. Astro components update without full refresh; Svelt
 ## Build
 
 `npm run build` runs Astro's static site generator:
+
 - Renders all pages to HTML
 - Processes images (generates AVIF/WebP at multiple widths)
 - Bundles and minifies JS/CSS
@@ -72,6 +73,7 @@ Deployment is automated via GitHub Actions and GitHub Pages. The workflow is def
 **Trigger:** Any push to `main`, or manually via `workflow_dispatch` in the GitHub Actions UI.
 
 **Pipeline steps:**
+
 1. `build` job — checks out the repo, installs dependencies with `npm ci`, runs `npm run build`, and uploads `dist/` as a Pages artifact
 2. `deploy` job — deploys the artifact to GitHub Pages using `actions/deploy-pages`
 
@@ -84,6 +86,7 @@ To trigger a manual deploy: go to the repository's **Actions** tab → **Deploy 
 ## How to contribute to this file
 
 Update this file when:
+
 - New npm scripts are added to `package.json`
 - A CI/CD pipeline is set up
 - Deployment process changes

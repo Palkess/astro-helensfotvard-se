@@ -50,8 +50,8 @@ Always define props with a TypeScript `interface Props` (Astro) or `interface Pr
 ```astro
 ---
 interface Props {
-  title: string;
-  href?: string;
+    title: string;
+    href?: string;
 }
 const { title, href } = Astro.props;
 ---
@@ -59,8 +59,10 @@ const { title, href } = Astro.props;
 
 ```svelte
 <script lang="ts">
-  interface Props { label: string }
-  const { label }: Props = $props();
+    interface Props {
+        label: string;
+    }
+    const { label }: Props = $props();
 </script>
 ```
 
@@ -70,12 +72,12 @@ const { title, href } = Astro.props;
 
 This project uses **Svelte 5**. Use the new runes API — do not use Svelte 3/4 syntax:
 
-| Old (Svelte 4) | New (Svelte 5) |
-|---|---|
-| `export let x` | `const { x } = $props()` |
-| `$:` reactive | `$derived` / `$effect` |
-| `<slot />` | `{@render children()}` with `children: Snippet` |
-| `on:click` | `onclick={...}` |
+| Old (Svelte 4) | New (Svelte 5)                                  |
+| -------------- | ----------------------------------------------- |
+| `export let x` | `const { x } = $props()`                        |
+| `$:` reactive  | `$derived` / `$effect`                          |
+| `<slot />`     | `{@render children()}` with `children: Snippet` |
+| `on:click`     | `onclick={...}`                                 |
 
 ---
 
@@ -83,8 +85,8 @@ This project uses **Svelte 5**. Use the new runes API — do not use Svelte 3/4 
 
 - Use **Tailwind utility classes** directly in markup — no separate CSS files per component
 - Reference custom theme tokens defined in `src/styles/global.css` via their Tailwind names:
-  - Colors: `bg-primary`, `text-text-heading`, `bg-surface-muted`, `border-card-border`, etc.
-  - Do not hardcode hex values in classes — always use the theme token
+    - Colors: `bg-primary`, `text-text-heading`, `bg-surface-muted`, `border-card-border`, etc.
+    - Do not hardcode hex values in classes — always use the theme token
 - For layout sections: `max-w-5xl mx-auto px-6` is the standard container width
 - Responsive prefix order: mobile-first, then `md:`, `lg:`
 
@@ -127,6 +129,7 @@ This project uses **Svelte 5**. Use the new runes API — do not use Svelte 3/4 
 ## How to contribute to this file
 
 Add entries here when:
+
 - A non-obvious pattern is established in the codebase that future contributors might not deduce from reading the code
 - A decision is made to always (or never) use a specific API or approach
 - A formatting/naming inconsistency is resolved by convention

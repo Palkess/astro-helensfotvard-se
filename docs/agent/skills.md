@@ -12,13 +12,13 @@ Consult this file when onboarding to this project, assessing unfamiliar parts of
 
 ## Core stack
 
-| Technology | Version | Role |
-|---|---|---|
-| Astro | 5.x | Primary framework — static site generation, file-based routing, image optimization |
-| Svelte | 5.x | Interactive component framework (Header, Button) |
-| Tailwind CSS | 4.x | Utility-first styling |
-| TypeScript | 5.x | Type safety across all source files |
-| Prettier | 3.x | Code formatting |
+| Technology   | Version | Role                                                                               |
+| ------------ | ------- | ---------------------------------------------------------------------------------- |
+| Astro        | 5.x     | Primary framework — static site generation, file-based routing, image optimization |
+| Svelte       | 5.x     | Interactive component framework (Header, Button)                                   |
+| Tailwind CSS | 4.x     | Utility-first styling                                                              |
+| TypeScript   | 5.x     | Type safety across all source files                                                |
+| Prettier     | 3.x     | Code formatting                                                                    |
 
 ---
 
@@ -63,6 +63,7 @@ This project uses **Svelte 5 runes** — not legacy Svelte 3/4 syntax:
 ## Image pipeline
 
 Images in `src/assets/` are processed by Astro at build time:
+
 - Import image as a module: `import myImg from '../assets/images/myimg.jpg'`
 - Pass to `<Picture src={myImg} ...>` — Astro generates AVIF/WebP at specified widths
 - Images in `public/` are served as-is (no processing) — only use for favicons, etc.
@@ -80,6 +81,7 @@ Images in `src/assets/` are processed by Astro at build time:
 ## How to contribute to this file
 
 Update this file when:
+
 - A major dependency is added or upgraded with breaking API changes
 - A new pattern or API is adopted project-wide
 - Onboarding reveals gaps that caused confusion

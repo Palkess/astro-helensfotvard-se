@@ -15,6 +15,7 @@ Consult this file when writing copy, naming routes or slugs, interpreting servic
 **Helens Fotvård** is a medical foot care clinic run by a single practitioner (Helen) in Borgholm, on the island of Öland in Sweden. The site is a Swedish-language marketing and contact site — all user-facing content is in Swedish.
 
 **Primary goals of the site:**
+
 1. Present the services offered
 2. Allow customers to understand what each treatment involves
 3. Direct visitors to book an appointment (via phone/contact, not an online booking system)
@@ -25,24 +26,25 @@ Consult this file when writing copy, naming routes or slugs, interpreting servic
 
 These terms have specific professional or regulatory meaning. Using them incorrectly would produce semantically wrong content.
 
-| Swedish term | Meaning | Notes |
-|---|---|---|
-| **Medicinsk fotvård** | Medical foot care | Implies trained/qualified practitioner — not casual nail painting |
-| **Fotvård** | Foot care | General term; "medicinsk fotvård" is the professional specialization |
-| **Friskvårdsförmån** | Wellness benefit/allowance | A Swedish tax-deductible employee benefit; employers can pay for treatments qualifying as friskvård. This is a specific legal/tax category. |
-| **Fotvård med friskvård** | Foot care under the wellness benefit | The service that qualifies for employer friskvård reimbursement |
-| **Nageltrång** | Ingrown toenail | A specific condition — not just tight nails. The treatment involves prevention, correction, and sometimes bracing. |
-| **Nagelklippning** | Nail clipping | Professional nail trimming — implies tools and technique beyond home care |
-| **Boka tid** | Book a time / Book an appointment | Standard Swedish CTA — used across all call-to-action buttons |
-| **Borgholm** | Town on Öland where the clinic is located | |
-| **Öland** | Swedish island in the Baltic Sea | Tourist/summer destination — relevant to seasonal context |
-| **Tystnadsplikt** | Professional secrecy / confidentiality | Healthcare practitioners in Sweden are legally bound. Relevant if any contact forms or testimonials are added. |
+| Swedish term              | Meaning                                   | Notes                                                                                                                                       |
+| ------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Medicinsk fotvård**     | Medical foot care                         | Implies trained/qualified practitioner — not casual nail painting                                                                           |
+| **Fotvård**               | Foot care                                 | General term; "medicinsk fotvård" is the professional specialization                                                                        |
+| **Friskvårdsförmån**      | Wellness benefit/allowance                | A Swedish tax-deductible employee benefit; employers can pay for treatments qualifying as friskvård. This is a specific legal/tax category. |
+| **Fotvård med friskvård** | Foot care under the wellness benefit      | The service that qualifies for employer friskvård reimbursement                                                                             |
+| **Nageltrång**            | Ingrown toenail                           | A specific condition — not just tight nails. The treatment involves prevention, correction, and sometimes bracing.                          |
+| **Nagelklippning**        | Nail clipping                             | Professional nail trimming — implies tools and technique beyond home care                                                                   |
+| **Boka tid**              | Book a time / Book an appointment         | Standard Swedish CTA — used across all call-to-action buttons                                                                               |
+| **Borgholm**              | Town on Öland where the clinic is located |                                                                                                                                             |
+| **Öland**                 | Swedish island in the Baltic Sea          | Tourist/summer destination — relevant to seasonal context                                                                                   |
+| **Tystnadsplikt**         | Professional secrecy / confidentiality    | Healthcare practitioners in Sweden are legally bound. Relevant if any contact forms or testimonials are added.                              |
 
 ---
 
 ## URL and slug conventions
 
 Routes and slugs are Swedish-language and should remain so:
+
 - `/tjanster/` — services (not `/services/`)
 - `/tjanster/medicinsk-fotvard` — medical foot care
 - `/tjanster/fotvard-med-friskvard` — wellness foot care
@@ -50,6 +52,7 @@ Routes and slugs are Swedish-language and should remain so:
 - `/tjanster/nageltrang` — ingrown toenail
 
 Section anchor IDs on the homepage:
+
 - `#tjanster` — services section
 - `#kontakt` — contact section
 
@@ -85,6 +88,7 @@ All user-facing content is in **Swedish**. Code, comments, variable names, and f
 ## How to contribute to this file
 
 Add entries here when:
+
 - A Swedish term is encountered that has a specific professional or legal meaning in this context
 - A business rule is discovered that is not obvious from the code (e.g., "services 1 and 2 are the same treatment")
 - Domain knowledge is needed to avoid producing plausible-but-wrong content

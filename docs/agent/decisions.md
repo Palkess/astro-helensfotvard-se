@@ -16,6 +16,7 @@ Consult this file when making or evaluating architectural or design choices, cho
 **Context:** Need a fast, SEO-optimized static marketing site with minimal JavaScript.
 **Decision:** Use Astro as the primary framework. All pages and static components are `.astro` files.
 **Consequences:**
+
 - Zero JS shipped by default for static components
 - Svelte available as an opt-in for interactive components
 - Build-time image optimization via `astro:assets`
@@ -29,6 +30,7 @@ Consult this file when making or evaluating architectural or design choices, cho
 **Context:** Astro supports multiple component frameworks. Svelte was chosen for interactive UI.
 **Decision:** Use Svelte (v5) exclusively for components that require client-side state or event handling. All other components use Astro.
 **Consequences:**
+
 - Header and Button use Svelte; all sections use Astro
 - Svelte 5 runes API (`$props`, `$state`, `$derived`, `$effect`) is the standard — no Svelte 3/4 syntax
 - Interactive components are hydrated with `client:load`
@@ -41,6 +43,7 @@ Consult this file when making or evaluating architectural or design choices, cho
 **Context:** Services needed to be associated with typed metadata (slug, title, description, image, duration) and imported images. Content collections are better suited for markdown prose.
 **Decision:** Store all service data in `src/data/services.ts` as a typed TypeScript array.
 **Consequences:**
+
 - Strong type safety on service shape
 - Images can be imported directly and processed by Astro's asset pipeline
 - Adding a new service requires editing a `.ts` file (not creating a markdown file)
@@ -54,6 +57,7 @@ Consult this file when making or evaluating architectural or design choices, cho
 **Context:** Need a design system with consistent color tokens across Astro and Svelte components.
 **Decision:** Use Tailwind v4 configured via `@theme` in `src/styles/global.css`. No `tailwind.config.js`.
 **Consequences:**
+
 - Custom tokens (`--color-primary`, `--color-text-heading`, etc.) become Tailwind utilities automatically
 - Theming is CSS-only — no JavaScript config file to maintain
 - Class sorting handled by `prettier-plugin-tailwindcss`
@@ -66,6 +70,7 @@ Consult this file when making or evaluating architectural or design choices, cho
 **Context:** Need a consistent way to organize growing component library.
 **Decision:** Follow Atomic Design: `atoms/` → `molecules/` → `organisms/`.
 **Consequences:**
+
 - Clear placement rules for new components
 - Organisms are full page sections; molecules are reusable combinations; atoms are single elements
 
@@ -82,6 +87,7 @@ Consult this file when making or evaluating architectural or design choices, cho
 ## How to contribute to this file
 
 Add an ADR entry when:
+
 - A non-obvious technology choice is made (framework, library, approach)
 - An architectural pattern is established or abandoned
 - A significant trade-off is accepted

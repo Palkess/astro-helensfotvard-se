@@ -72,6 +72,7 @@ Section IDs (`tjanster`, `kontakt`) are anchor targets used by CTAs across the s
 ### Service detail pages (`/tjanster/[slug]`)
 
 Statically generated — one page per entry in `services`. Layout:
+
 - Split hero: text left, `Picture` right
 - Back link to `/#tjanster`
 - "Boka tid" CTA links to `/#kontakt`
@@ -80,11 +81,11 @@ Statically generated — one page per entry in `services`. Layout:
 
 ## Framework split: Astro vs Svelte
 
-| Component | Framework | Reason |
-|---|---|---|
-| Layout, pages, all sections | Astro | Static, no JS needed |
-| Header | Svelte | Mobile menu state, scroll effects, keyboard nav |
-| Button | Svelte | Used in both Astro and Svelte contexts; supports `onclick` callback |
+| Component                   | Framework | Reason                                                              |
+| --------------------------- | --------- | ------------------------------------------------------------------- |
+| Layout, pages, all sections | Astro     | Static, no JS needed                                                |
+| Header                      | Svelte    | Mobile menu state, scroll effects, keyboard nav                     |
+| Button                      | Svelte    | Used in both Astro and Svelte contexts; supports `onclick` callback |
 
 Interactive Svelte components are mounted with `client:load` in the layout, meaning they hydrate immediately on page load.
 
@@ -95,6 +96,7 @@ Interactive Svelte components are mounted with `client:load` in the layout, mean
 Custom design tokens are defined in `src/styles/global.css` under `@theme` and become Tailwind utilities automatically (Tailwind v4 CSS-variable approach). No `tailwind.config.js` exists — configuration is CSS-only.
 
 Key token groups:
+
 - `--color-primary` / `--color-primary-dark` / `--color-primary-light` — brand blue
 - `--color-surface-*` — page background variants
 - `--color-text-*` — heading / body / muted text hierarchy
@@ -113,6 +115,7 @@ Key token groups:
 ## How to contribute to this file
 
 Update this file when:
+
 - A new top-level directory or major structural pattern is added to `src/`
 - A new page type or routing pattern is introduced
 - The framework split decision changes (e.g., a new interactive component is added)
