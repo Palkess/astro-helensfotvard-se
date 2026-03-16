@@ -122,7 +122,7 @@
         type="button"
         onclick={openSettings}
         aria-label="Hantera cookieinställningar"
-        class="border-card-border bg-card hover:bg-surface-muted focus-visible:outline-primary fixed bottom-4 left-4 z-50 flex h-11 w-11 items-center justify-center rounded-full border shadow-md focus-visible:outline-2 focus-visible:outline-offset-2">
+        class="border-card-border bg-card hover:bg-surface-muted focus-visible:outline-primary fixed bottom-4 left-4 z-50 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border shadow-md focus-visible:outline-2 focus-visible:outline-offset-2">
         <Cookie class="text-text-body h-5 w-5" aria-hidden="true" />
     </button>
 {/if}

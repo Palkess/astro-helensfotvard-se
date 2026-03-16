@@ -11,7 +11,7 @@ import ContactSection from '../components/organisms/ContactSection.astro';
         eyebrow="Medicinsk fotvård i Borgholm"
         title="Det naturliga valet för friska fötter på Öland"
         subtitle="Vi erbjuder medicinsk fotvård i Borgholm. Hos oss kan du alltid känna dig välkommen och få sköna fötter."
-        ctaHref="#kontakt"
+        ctaHref={import.meta.env.PUBLIC_BOOKING_URL}
         ctaText="Boka tid"
     />
     <ServicesSection />

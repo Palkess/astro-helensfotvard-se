@@ -3,6 +3,7 @@ import { Picture } from 'astro:assets';
 import { services } from '../../data/services';
 import Layout from '../../layouts/Layout.astro';
 import Button from '../../components/atoms/Button.svelte';
+import { CalendarIcon } from 'lucide-svelte';
 
 export function getStaticPaths() {
     return services.map((service) => ({
@@ -15,7 +16,7 @@ const { service } = Astro.props;
 ---
 
 <Layout>
-    <main class="min-h-screen bg-surface-base">
+    <main class="bg-surface-base">
         <!-- Hero: split layout — text left, image right -->
         <section class="bg-surface-base">
             <div class="mx-auto grid max-w-5xl items-center gap-12 px-6 py-20 md:grid-cols-2">
@@ -51,7 +52,10 @@ const { service } = Astro.props;
                     </h1>
                     <p class="text-lg text-text-body leading-relaxed mb-8">{service.longDesc}</p>
                     <div>
-                        <Button href="/#kontakt">Boka tid</Button>
+                        <Button href={import.meta.env.PUBLIC_BOOKING_URL}>
+                            <CalendarIcon class="h-5 w-5" aria-hidden="true" />
+                            Boka tid
+                        </Button>
                     </div>
                 </div>
 

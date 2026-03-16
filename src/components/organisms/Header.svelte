@@ -1,7 +1,7 @@
 <script lang="ts">
     import { services } from '../../data/services';
     import Button from '../atoms/Button.svelte';
-    import { ChevronDown, Phone, X, Menu } from 'lucide-svelte';
+    import { ChevronDown, Phone, X, Menu, CalendarIcon } from 'lucide-svelte';
 
     let menuOpen = $state(false);
     let servicesOpen = $state(false);
@@ -10,6 +10,8 @@
     let navWrapper: HTMLElement;
     let currentPath = $state('');
     let activeSection = $state<string | null>(null);
+
+    let bookingUrl = import.meta.env.PUBLIC_BOOKING_URL;
 
     $effect(() => {
         currentPath = window.location.pathname;
@@ -140,7 +142,7 @@
                     onclick={toggleServices}
                     aria-haspopup="true"
                     aria-expanded={servicesOpen}
-                    class="hover:text-primary flex items-center gap-1 transition-colors duration-300 {isServiceActive()
+                    class="hover:text-primary flex cursor-pointer items-center gap-1 transition-colors duration-300 {isServiceActive()
                         ? 'text-primary font-semibold'
                         : ''}">
                     Tjänster
@@ -188,8 +190,8 @@
 
         <!-- CTA — right -->
         <div class="hidden flex-1 justify-end md:flex">
-            <Button href="/#kontakt" size="sm" variant="outline">
-                <Phone class="h-4 w-4" aria-hidden="true" />
+            <Button href={bookingUrl} size="sm" variant="outline">
+                <CalendarIcon class="h-4 w-4" aria-hidden="true" />
                 Boka tid
             </Button>
         </div>
@@ -256,7 +258,7 @@
                 Kontakt
             </a>
             <a
-                href="/#kontakt"
+                href={bookingUrl}
                 onclick={closeMenu}
                 class="border-primary text-primary hover:bg-primary mt-2 inline-flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-center font-medium transition-colors duration-300 hover:text-white">
                 <Phone class="h-4 w-4" aria-hidden="true" />
