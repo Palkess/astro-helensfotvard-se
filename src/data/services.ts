@@ -40,7 +40,7 @@ export const services: Service[] = [
             },
             {
                 q: 'Hur ofta bör jag boka en behandling?',
-                a: 'För de flesta rekommenderas ett besök var 6–8 vecka, men det varierar beroende på dina behov. Har du specifika besvär som nageltrång, diabetes eller nedsatt känsel kan tätare besök vara aktuellt.'
+                a: 'För de flesta rekommenderas ett besök var 8-10 vecka, men det varierar beroende på dina behov. Har du specifika besvär som nageltrång, diabetes eller nedsatt känsel kan tätare besök vara aktuellt.'
             },
             {
                 q: 'Hur förbereder jag mig inför besöket?',
