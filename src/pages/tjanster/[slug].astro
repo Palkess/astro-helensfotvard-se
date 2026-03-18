@@ -13,9 +13,54 @@ export function getStaticPaths() {
 }
 
 const { service } = Astro.props;
+
+const serviceProvider = {
+    '@type': 'Podiatrist',
+    name: 'Helens Fotvård',
+    url: 'https://helensfotvard.se',
+    address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Trädgårdsgatan 14',
+        addressLocality: 'Borgholm',
+        postalCode: '387 31',
+        addressCountry: 'SE',
+    },
+};
+
+const schema: Record<string, unknown>[] = [
+    {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: service.title,
+        description: service.longDesc,
+        url: `https://helensfotvard.se/tjanster/${service.slug}`,
+        provider: serviceProvider,
+        areaServed: { '@type': 'City', name: 'Borgholm' },
+        ...(service.duration && { offers: { '@type': 'Offer', name: service.title } }),
+    },
+];
+
+if (service.faq && service.faq.length > 0) {
+    schema.push({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: service.faq.map((item) => ({
+            '@type': 'Question',
+            name: item.q,
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.a,
+            },
+        })),
+    });
+}
 ---
 
-<Layout>
+<Layout
+    title={`${service.title} – Helens Fotvård`}
+    description={service.desc}
+    schema={schema}
+>
     <main class="bg-surface-base">
         <!-- Hero: split layout — text left, image right -->
         <section class="bg-surface-base">

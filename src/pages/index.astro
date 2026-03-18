@@ -4,9 +4,46 @@ import HeroSection from '../components/organisms/HeroSection.astro';
 import ServicesSection from '../components/organisms/ServicesSection.astro';
 import AboutSection from '../components/organisms/AboutSection.astro';
 import ContactSection from '../components/organisms/ContactSection.astro';
+import { services } from '../data/services';
+
+const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Podiatrist',
+    name: 'Helens Fotvård',
+    description:
+        'Medicinsk fotvård i Borgholm på Öland. Vi erbjuder medicinsk fotvård, fotvård med friskvård, nagelklippning och behandling av nageltrång.',
+    url: 'https://helensfotvard.se',
+    telephone: '+46767676725',
+    email: 'helen@helensfotvard.se',
+    address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Trädgårdsgatan 14',
+        addressLocality: 'Borgholm',
+        postalCode: '387 31',
+        addressCountry: 'SE',
+    },
+    areaServed: {
+        '@type': 'City',
+        name: 'Borgholm',
+    },
+    hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Fotvårdstjänster',
+        itemListElement: services.map((s) => ({
+            '@type': 'Offer',
+            itemOffered: {
+                '@type': 'Service',
+                name: s.title,
+                description: s.desc,
+                url: `https://helensfotvard.se/tjanster/${s.slug}`,
+            },
+        })),
+    },
+    sameAs: ['https://www.facebook.com/helensfotvard'],
+};
 ---
 
-<Layout>
+<Layout schema={localBusinessSchema}>
     <HeroSection
         eyebrow="Medicinsk fotvård i Borgholm"
         title="Det naturliga valet för friska fötter på Öland"
