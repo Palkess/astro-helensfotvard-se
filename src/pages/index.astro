@@ -20,11 +20,11 @@ const localBusinessSchema = {
         streetAddress: 'Trädgårdsgatan 14',
         addressLocality: 'Borgholm',
         postalCode: '387 31',
-        addressCountry: 'SE',
+        addressCountry: 'SE'
     },
     areaServed: {
         '@type': 'City',
-        name: 'Borgholm',
+        name: 'Borgholm'
     },
     hasOfferCatalog: {
         '@type': 'OfferCatalog',
@@ -35,11 +35,11 @@ const localBusinessSchema = {
                 '@type': 'Service',
                 name: s.title,
                 description: s.desc,
-                url: `https://helensfotvard.se/tjanster/${s.slug}`,
-            },
-        })),
+                url: `https://helensfotvard.se/tjanster/${s.slug}`
+            }
+        }))
     },
-    sameAs: ['https://www.facebook.com/helensfotvard'],
+    sameAs: ['https://www.facebook.com/helensfotvard']
 };
 ---
 
