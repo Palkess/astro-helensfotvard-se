@@ -1,7 +1,11 @@
 <script lang="ts">
     import { services } from '../../data/services';
     import Button from '../atoms/Button.svelte';
-    import { ChevronDown, Phone, X, Menu, CalendarIcon } from 'lucide-svelte';
+    import ChevronDown from '@lucide/svelte/icons/chevron-down';
+    import Phone from '@lucide/svelte/icons/phone';
+    import X from '@lucide/svelte/icons/x';
+    import Menu from '@lucide/svelte/icons/menu';
+    import Calendar from '@lucide/svelte/icons/calendar';
 
     let menuOpen = $state(false);
     let servicesOpen = $state(false);
@@ -191,7 +195,7 @@
         <!-- CTA — right -->
         <div class="hidden flex-1 justify-end md:flex">
             <Button href={bookingUrl} size="sm" variant="outline">
-                <CalendarIcon class="h-4 w-4" aria-hidden="true" />
+                <Calendar class="h-4 w-4" aria-hidden="true" />
                 Boka tid
             </Button>
         </div>

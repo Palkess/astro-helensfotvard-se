@@ -4,16 +4,18 @@ interface Props {
     desc: string;
     href?: string;
     duration?: string;
+    transitionName?: string;
 }
-const { title, desc, href, duration } = Astro.props;
+const { title, desc, href, duration, transitionName } = Astro.props;
 ---
 
 {
     href ? (
         <a
             href={href}
+            data-card-link
             class="block bg-card rounded-2xl p-8 border border-card-border hover:border-primary/30 transition-colors duration-300 hover:shadow-md">
-            <h3 class="text-xl font-semibold text-text-heading mb-2">{title}</h3>
+            <h3 data-transition-name={transitionName} class="text-xl font-semibold text-text-heading mb-2">{title}</h3>
             {duration && (
                 <span class="inline-block text-sm text-text-body bg-surface-muted rounded-full px-3 py-1 mb-4">
                     {duration}
@@ -33,3 +35,16 @@ const { title, desc, href, duration } = Astro.props;
         </div>
     )
 }
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        document.querySelectorAll('[data-card-link]').forEach((link) => {
+            link.addEventListener('click', () => {
+                const h3 = link.querySelector('[data-transition-name]');
+                if (h3?.dataset.transitionName) {
+                    h3.style.viewTransitionName = h3.dataset.transitionName;
+                }
+            });
+        });
+    });
+</script>

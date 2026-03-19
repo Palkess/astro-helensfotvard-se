@@ -80,10 +80,11 @@ Consult this file when making or evaluating architectural or design choices, cho
 
 **Date:** 2026-03-16
 **Context:** Icons were hand-coded inline SVGs, making them verbose and error-prone to maintain. Needed a consistent, maintainable icon system compatible with Svelte 5 and Tailwind.
-**Decision:** Use `lucide-svelte` for all icons. Import named components; size and color via Tailwind class attributes.
+**Decision:** Use `@lucide/svelte` in `.svelte` files and `@lucide/astro` in `.astro` files. Import named components; size and color via Tailwind class attributes.
 **Consequences:**
 
-- Inline SVGs eliminated from Svelte components
+- Inline SVGs eliminated from components (only exception: highly specific shapes not in Lucide)
+- Using `@lucide/astro` in `.astro` files avoids TypeScript errors from the Svelte component boundary (`class` prop not recognized on Svelte components in Astro context)
 - Vite tree-shakes unused icons — no bundle cost for icons not imported
 - Icon stroke style is consistent (Lucide defaults: `currentColor`, `round` caps/joins)
 - New icons must exist in the Lucide library — custom shapes require a one-off inline SVG with a comment explaining why

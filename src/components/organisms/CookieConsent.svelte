@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import { Cookie } from 'lucide-svelte';
+    //import { Cookie } from 'lucide-svelte';
+    import Cookie from '@lucide/svelte/icons/cookie';
 
     let bannerVisible = $state(false);
     let iconVisible = $state(false);

@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import Footer from '../components/organisms/Footer.astro';
 import Header from '../components/organisms/Header.svelte';
 import CookieConsent from '../components/organisms/CookieConsent.svelte';
@@ -13,7 +14,7 @@ interface Props {
 const {
     title = 'Helens Fotvård – Medicinsk fotvård i Borgholm',
     description = 'Helens Fotvård – medicinsk fotvård i Borgholm på Öland. Vi erbjuder medicinsk fotvård, fotvård med friskvård, nagelklippning och behandling av nageltrång. Det naturliga valet för friska fötter på Öland.',
-    schema,
+    schema
 } = Astro.props;
 ---
 
@@ -34,8 +35,12 @@ const {
         <meta name="description" content={description} />
         <meta name="robots" content="noindex, nofollow" />
         <title>{title}</title>
-        {schema && <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />}
-        <script>history.scrollRestoration = 'manual';</script>
+        {
+            schema && (
+                <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+            )
+        }
+        <ClientRouter />
     </head>
     <body>
         <Header client:load />

@@ -18,6 +18,7 @@ import ServiceCard from '../molecules/ServiceCard.astro';
                         desc={s.desc}
                         href={'/tjanster/' + s.slug}
                         duration={s.duration}
+                        transitionName={s.slug + '-title'}
                     />
                 ))
             }

@@ -111,8 +111,9 @@ This project uses **Svelte 5**. Use the new runes API — do not use Svelte 3/4 
 
 ## Icons
 
-- Use **`lucide-svelte`** components — do not write inline SVGs
-- Import only the icons you need: `import { ChevronDown } from 'lucide-svelte'`
+- Use **`@lucide/astro`** in `.astro` files and **`@lucide/svelte`** in `.svelte` files — do not write inline SVGs (exception: custom shapes not in Lucide)
+- Import via path: `import ChevronDown from '@lucide/astro/icons/chevron-down'` / `import ChevronDown from '@lucide/svelte/icons/chevron-down'`
+- Using `@lucide/svelte` in `.astro` files causes a TypeScript error (`class` prop not recognized across the Svelte component boundary)
 - Set size via Tailwind class (`class="h-4 w-4"`), not the `size` prop
 - Always set `aria-hidden="true"` on decorative icons; provide an `aria-label` only on standalone icon buttons
 - Do not hardcode SVG attributes — Lucide defaults (`currentColor`, `fill="none"`, etc.) are correct
@@ -125,6 +126,28 @@ This project uses **Svelte 5**. Use the new runes API — do not use Svelte 3/4 
 - Dynamic routes use `[slug].astro` with `getStaticPaths()` returning data from `src/data/`
 - URL slugs are Swedish (e.g., `/tjanster/medicinsk-fotvard`) — match `slug` field in data
 - Section anchors use Swedish IDs (e.g., `id="tjanster"`, `id="kontakt"`)
+
+---
+
+## Icon import anti-pattern
+
+Never use named imports from the top-level package:
+
+```ts
+// ❌ Imports the entire icon library in dev mode — causes significant slowdown
+import { ChevronDown } from '@lucide/svelte';
+import { ChevronDown } from '@lucide/astro';
+```
+
+Always import via the individual icon path:
+
+```ts
+// ✅ Only loads the single icon
+import ChevronDown from '@lucide/svelte/icons/chevron-down';
+import ChevronDown from '@lucide/astro/icons/chevron-down';
+```
+
+Vite tree-shakes the top-level import in production builds, but during dev the full library is loaded, which noticeably slows down HMR and page loads.
 
 ---
 
