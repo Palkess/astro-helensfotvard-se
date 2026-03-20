@@ -38,7 +38,7 @@ const { eyebrow, title, subtitle, ctaHref, ctaText } = Astro.props;
         </div>
 
         <!-- Image column -->
-        <div class="relative">
+        <div class="relative @container">
             <div class="relative overflow-hidden rounded-3xl aspect-3/4">
                 <Picture
                     src={heroImage}
@@ -52,9 +52,9 @@ const { eyebrow, title, subtitle, ctaHref, ctaText } = Astro.props;
             </div>
             <!-- Name badge -->
             <div
-                class="absolute bottom-4 right-4 flex items-center gap-2 rounded-full bg-white/90 px-4 py-2.5 backdrop-blur-sm">
-                <span class="text-sm font-semibold text-primary">Helen Andersson</span>
-                <span class="text-sm">Leg. medicinsk fotvårdare</span>
+                class="absolute bottom-4 right-4 ml-4 flex flex-wrap justify-center @xs:justify-baseline items-center gap-2 rounded-full bg-white/90 px-4 py-2.5 backdrop-blur-sm">
+                <span class="text-xs @sm:text-sm font-semibold text-primary">Helen Andersson</span>
+                <span class="text-xs @sm:text-sm">Leg. medicinsk fotvårdare</span>
             </div>
         </div>
     </div>
