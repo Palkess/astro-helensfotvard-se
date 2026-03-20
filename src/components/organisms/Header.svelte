@@ -1,5 +1,6 @@
 <script lang="ts">
     import { services } from '../../data/services';
+    import { prefetch } from 'astro:prefetch';
     import Button from '../atoms/Button.svelte';
     import ChevronDown from '@lucide/svelte/icons/chevron-down';
     import Phone from '@lucide/svelte/icons/phone';
@@ -174,6 +175,8 @@
                             <li>
                                 <a
                                     href={'/tjanster/' + service.slug}
+                                    onmouseenter={(e) => prefetch((e.currentTarget as HTMLAnchorElement).href)}
+                                    onfocus={(e) => prefetch((e.currentTarget as HTMLAnchorElement).href)}
                                     onclick={closeServices}
                                     class="hover:bg-surface-muted hover:text-primary block px-4 py-3 text-sm text-stone-700 transition-colors duration-300 first:rounded-t-lg last:rounded-b-lg {currentPath ===
                                     '/tjanster/' + service.slug
@@ -245,6 +248,8 @@
                     {#each services as service}
                         <a
                             href={'/tjanster/' + service.slug}
+                            onmouseenter={(e) => prefetch((e.currentTarget as HTMLAnchorElement).href)}
+                            onfocus={(e) => prefetch((e.currentTarget as HTMLAnchorElement).href)}
                             onclick={closeMenu}
                             class="hover:text-primary py-2 text-lg transition-colors duration-300 {currentPath ===
                             '/tjanster/' + service.slug
