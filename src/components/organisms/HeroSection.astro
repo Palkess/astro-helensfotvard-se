@@ -17,7 +17,8 @@ const { eyebrow, title, subtitle, ctaHref, ctaText } = Astro.props;
 ---
 
 <section class="bg-surface-base">
-    <div class="mx-auto grid max-w-5xl items-center gap-12 px-6 py-20 md:grid-cols-2">
+    <div
+        class="mx-auto grid max-w-5xl items-center gap-12 px-6 pt-20 pb-10 md:pb-20 md:grid-cols-2">
         <!-- Text column -->
         <div>
             <p class="mb-5 text-sm font-semibold tracking-widest uppercase text-primary">
@@ -53,8 +54,8 @@ const { eyebrow, title, subtitle, ctaHref, ctaText } = Astro.props;
             <!-- Name badge -->
             <div
                 class="absolute bottom-4 right-4 ml-4 flex flex-wrap justify-center @xs:justify-baseline items-center gap-2 rounded-full bg-white/90 px-4 py-2.5 backdrop-blur-sm">
-                <span class="text-xs @sm:text-sm font-semibold text-primary">Helen Andersson</span>
-                <span class="text-xs @sm:text-sm">Leg. medicinsk fotvårdare</span>
+                <span class="text-sm font-semibold text-primary">Helen Andersson</span>
+                <span class="text-sm">Leg. medicinsk fotvårdare</span>
             </div>
         </div>
     </div>
@@ -67,10 +68,10 @@ const { eyebrow, title, subtitle, ctaHref, ctaText } = Astro.props;
                 <div>
                     <a
                         href="tel:+46767676725"
-                        class="block text-sm font-medium text-primary transition-colors duration-300 hover:text-primary-dark">
+                        class="block font-medium text-primary transition-colors duration-300 hover:text-primary-dark">
                         076-76 76 725
                     </a>
-                    <p class="text-xs text-text-muted">Ring för att boka tid</p>
+                    <p class="text-sm text-text-muted">Ring för att boka tid</p>
                 </div>
             </div>
 
@@ -79,10 +80,10 @@ const { eyebrow, title, subtitle, ctaHref, ctaText } = Astro.props;
                 <div>
                     <a
                         href="mailto:helen@helensfotvard.se"
-                        class="block text-sm font-medium text-primary transition-colors duration-300 hover:text-primary-dark">
+                        class="block font-medium text-primary transition-colors duration-300 hover:text-primary-dark">
                         helen@helensfotvard.se
                     </a>
-                    <p class="text-xs text-text-muted">Svarar inom ett par dagar</p>
+                    <p class="text-sm text-text-muted">Svarar inom ett par dagar</p>
                 </div>
             </div>
 
@@ -90,7 +91,7 @@ const { eyebrow, title, subtitle, ctaHref, ctaText } = Astro.props;
                 <MapPin class="h-6 w-6 shrink-0 text-primary" />
                 <div>
                     <p class="text-sm font-medium text-primary">Trädgårdsgatan 14, Borgholm</p>
-                    <p class="text-xs text-text-muted">Borgholm, Öland</p>
+                    <p class="text-sm text-text-muted">Borgholm, Öland</p>
                 </div>
             </div>
         </div>
