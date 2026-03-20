@@ -19,11 +19,6 @@
 
     $effect(() => {
         currentPath = window.location.pathname;
-
-        document.addEventListener('astro:page-load', () => {
-            // This runs on first page load and after every navigation.
-            currentPath = window.location.pathname;
-        });
     });
 
     $effect(() => {
