@@ -19,6 +19,13 @@
 
     $effect(() => {
         currentPath = window.location.pathname;
+
+        function onSwap() {
+            currentPath = window.location.pathname;
+        }
+
+        document.addEventListener('astro:after-swap', onSwap);
+        return () => document.removeEventListener('astro:after-swap', onSwap);
     });
 
     $effect(() => {

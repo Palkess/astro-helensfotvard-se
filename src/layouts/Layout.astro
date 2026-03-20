@@ -43,7 +43,7 @@ const {
         <ClientRouter />
     </head>
     <body>
-        <Header client:load />
+        <Header client:load transition:persist />
         <slot />
         <Footer />
         <CookieConsent client:load />
