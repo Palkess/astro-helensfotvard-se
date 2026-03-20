@@ -18,10 +18,14 @@
     let bookingUrl = import.meta.env.PUBLIC_BOOKING_URL;
 
     $effect(() => {
-        currentPath = window.location.pathname;
+        function normalizePath(path: string) {
+            return path.replace(/\/$/, '') || '/';
+        }
+
+        currentPath = normalizePath(window.location.pathname);
 
         function onSwap() {
-            currentPath = window.location.pathname;
+            currentPath = normalizePath(window.location.pathname);
         }
 
         document.addEventListener('astro:after-swap', onSwap);
