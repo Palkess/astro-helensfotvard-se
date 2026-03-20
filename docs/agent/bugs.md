@@ -45,12 +45,12 @@ The hero section uses a placeholder image. The commit message notes "Placeholder
 ### No ESLint configuration
 
 **Status:** Known / intentional
-ESLint is not set up. Type checking is available via `npx astro check`. Linting gaps are accepted for this project size.
+ESLint is not set up. Type checking is available via `npm run check`. Linting gaps are accepted for this project size.
 
-### All dependencies listed under `dependencies` (not `devDependencies`)
+### Some build tools listed under `dependencies` (not `devDependencies`)
 
 **Status:** Known / low priority
-Build tools (Prettier, TypeScript) are in `dependencies` rather than `devDependencies`. This is harmless for a static site with no published package, but is unconventional. Do not "fix" this without understanding the deployment pipeline, as some hosts install only `dependencies`.
+Build tools like Prettier, TypeScript, and `@astrojs/check` are in `dependencies` rather than `devDependencies`. (`@lucide/svelte` has been correctly moved to `devDependencies`.) This is harmless for a static site with no published package, but is unconventional. Do not "fix" this without understanding the deployment pipeline, as some hosts install only `dependencies`.
 
 ---
 

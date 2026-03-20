@@ -19,7 +19,8 @@ Consult this file when onboarding to this project, assessing unfamiliar parts of
 | Tailwind CSS  | 4.x     | Utility-first styling                                                              |
 | TypeScript    | 5.x     | Type safety across all source files                                                |
 | Prettier      | 3.x     | Code formatting                                                                    |
-| lucide-svelte | latest  | Icon library — named imports, tree-shaken by Vite at build time                    |
+| @lucide/svelte | latest  | Icon library for `.svelte` files — path imports, tree-shaken by Vite              |
+| @lucide/astro  | latest  | Icon library for `.astro` files — path imports, tree-shaken by Vite               |
 
 ---
 
@@ -50,13 +51,21 @@ This project uses **Svelte 5 runes** — not legacy Svelte 3/4 syntax:
 - Custom tokens become utilities automatically (e.g., `--color-primary` → `bg-primary`, `text-primary`)
 - Class sorting is handled by `prettier-plugin-tailwindcss` — run `npm run format` to sort
 
-### Icons (lucide-svelte)
+### Icons (@lucide/svelte / @lucide/astro)
 
-- Import named icons: `import { ChevronDown, Phone, X, Menu, Cookie } from 'lucide-svelte'`
+- Use `@lucide/svelte` in `.svelte` files, `@lucide/astro` in `.astro` files
+- Always import via the individual icon path — never named imports from the top-level package:
+  ```ts
+  // ✅ correct
+  import ChevronDown from '@lucide/svelte/icons/chevron-down';
+  import Phone from '@lucide/astro/icons/phone';
+
+  // ❌ wrong — loads the full library in dev, causes HMR slowdown
+  import { ChevronDown } from '@lucide/svelte';
+  ```
 - Size via Tailwind class: `class="h-4 w-4"` — do not use `size` prop
 - Always add `aria-hidden="true"` on decorative icons
 - Lucide defaults (no need to specify): `stroke="currentColor"`, `fill="none"`, `stroke-linecap="round"`, `stroke-linejoin="round"`, `viewBox="0 0 24 24"`
-- Vite tree-shakes unused icons — import only what you use
 
 ---
 
