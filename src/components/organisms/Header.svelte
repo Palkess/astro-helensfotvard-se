@@ -175,8 +175,10 @@
                             <li>
                                 <a
                                     href={'/tjanster/' + service.slug}
-                                    onmouseenter={(e) => prefetch((e.currentTarget as HTMLAnchorElement).href)}
-                                    onfocus={(e) => prefetch((e.currentTarget as HTMLAnchorElement).href)}
+                                    onmouseenter={(e) =>
+                                        prefetch((e.currentTarget as HTMLAnchorElement).href)}
+                                    onfocus={(e) =>
+                                        prefetch((e.currentTarget as HTMLAnchorElement).href)}
                                     onclick={closeServices}
                                     class="hover:bg-surface-muted hover:text-primary block px-4 py-3 text-sm text-stone-700 transition-colors duration-300 first:rounded-t-lg last:rounded-b-lg {currentPath ===
                                     '/tjanster/' + service.slug
@@ -248,7 +250,8 @@
                     {#each services as service}
                         <a
                             href={'/tjanster/' + service.slug}
-                            onmouseenter={(e) => prefetch((e.currentTarget as HTMLAnchorElement).href)}
+                            onmouseenter={(e) =>
+                                prefetch((e.currentTarget as HTMLAnchorElement).href)}
                             onfocus={(e) => prefetch((e.currentTarget as HTMLAnchorElement).href)}
                             onclick={closeMenu}
                             class="hover:text-primary py-2 text-lg transition-colors duration-300 {currentPath ===
