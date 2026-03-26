@@ -1,6 +1,7 @@
 ---
 import SectionHeader from '../molecules/SectionHeader.astro';
 import ContactItem from '../molecules/ContactItem.astro';
+import { business } from '../../data/business';
 ---
 
 <section id="kontakt" class="py-24 px-6 bg-surface-muted">
@@ -14,21 +15,26 @@ import ContactItem from '../molecules/ContactItem.astro';
             <div class="bg-card rounded-2xl p-10 border border-card-border">
                 <h3 class="text-2xl font-semibold text-text-heading mb-6">Kontaktuppgifter</h3>
                 <dl class="space-y-5 text-lg">
-                    <ContactItem label="Telefon" value="076-76 76 725" href="tel:+46767676725" />
+                    <ContactItem
+                        label="Telefon"
+                        value={business.contact.phoneDisplay}
+                        href={`tel:${business.contact.phoneRaw}`}
+                    />
                     <ContactItem
                         label="Helen"
-                        value="helen@helensfotvard.se"
-                        href="mailto:helen@helensfotvard.se"
+                        value={business.contact.emailHelen}
+                        href={`mailto:${business.contact.emailHelen}`}
                     />
                     <ContactItem
                         label="Jenny"
-                        value="jenny@helensfotvard.se"
-                        href="mailto:jenny@helensfotvard.se"
+                        value={business.contact.emailJenny}
+                        href={`mailto:${business.contact.emailJenny}`}
                     />
                     <div>
                         <dt class="font-medium text-text-heading">Adress</dt>
                         <dd class="text-text-body mt-1">
-                            Trädgårdsgatan 14<br />387 31 Borgholm
+                            {business.address.street}<br />{business.address.postalCode}
+                            {business.address.city}
                         </dd>
                     </div>
                 </dl>
@@ -41,7 +47,7 @@ import ContactItem from '../molecules/ContactItem.astro';
                     Facebook-sida eller genom att ringa oss.
                 </p>
                 <a
-                    href="https://www.facebook.com/helensfotvard"
+                    href={business.contact.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="inline-flex items-center gap-2 rounded-lg border border-card-border bg-surface-base px-5 py-3 text-text-heading transition-colors duration-300 hover:border-primary/30 hover:text-primary">

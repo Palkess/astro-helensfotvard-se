@@ -2,6 +2,7 @@
 import { Picture } from 'astro:assets';
 import { services } from '../../data/services';
 import Layout from '../../layouts/Layout.astro';
+import { serviceProvider, business } from '../../data/business';
 import Button from '../../components/atoms/Button.svelte';
 import Calendar from '@lucide/astro/icons/calendar';
 import ChevronLeft from '@lucide/astro/icons/chevron-left';
@@ -16,28 +17,15 @@ export function getStaticPaths() {
 
 const { service } = Astro.props;
 
-const serviceProvider = {
-    '@type': 'Podiatrist',
-    name: 'Helens Fotvård',
-    url: 'https://helensfotvard.se',
-    address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Trädgårdsgatan 14',
-        addressLocality: 'Borgholm',
-        postalCode: '387 31',
-        addressCountry: 'SE'
-    }
-};
-
 const schema: Record<string, unknown>[] = [
     {
         '@context': 'https://schema.org',
         '@type': 'Service',
         name: service.title,
         description: service.longDesc,
-        url: `https://helensfotvard.se/tjanster/${service.slug}`,
+        url: `${business.url}/tjanster/${service.slug}`,
         provider: serviceProvider,
-        areaServed: { '@type': 'City', name: 'Borgholm' },
+        areaServed: { '@type': 'City', name: business.address.city },
         ...(service.duration && { offers: { '@type': 'Offer', name: service.title } })
     }
 ];
@@ -58,7 +46,7 @@ if (service.faq && service.faq.length > 0) {
 }
 ---
 
-<Layout title={`${service.title} – Helens Fotvård`} description={service.desc} schema={schema}>
+<Layout title={`${service.title} – ${business.name}`} description={service.desc} schema={schema}>
     <main class="bg-surface-base">
         <!-- Hero: split layout — text left, image right -->
         <section class="bg-surface-base">

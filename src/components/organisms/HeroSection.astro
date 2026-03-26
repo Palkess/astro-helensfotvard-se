@@ -5,6 +5,7 @@ import Calendar from '@lucide/astro/icons/calendar';
 import Phone from '@lucide/astro/icons/phone';
 import Mail from '@lucide/astro/icons/mail';
 import MapPin from '@lucide/astro/icons/map-pin';
+import { business } from '../../data/business';
 
 interface Props {
     eyebrow: string;
@@ -54,8 +55,8 @@ const { eyebrow, title, subtitle, ctaHref, ctaText } = Astro.props;
             <!-- Name badge -->
             <div
                 class="absolute bottom-4 right-4 ml-4 flex flex-wrap justify-center @xs:justify-baseline items-center gap-2 rounded-full bg-white/90 px-4 py-2.5 backdrop-blur-sm">
-                <span class="text-sm font-semibold text-primary">Helen Andersson</span>
-                <span class="text-sm">Leg. medicinsk fotvårdare</span>
+                <span class="text-sm font-semibold text-primary">{business.owner.name}</span>
+                <span class="text-sm">{business.owner.title}</span>
             </div>
         </div>
     </div>
@@ -67,9 +68,9 @@ const { eyebrow, title, subtitle, ctaHref, ctaText } = Astro.props;
                 <Phone class="h-6 w-6 shrink-0 text-primary" />
                 <div>
                     <a
-                        href="tel:+46767676725"
+                        href={`tel:${business.contact.phoneRaw}`}
                         class="block font-medium text-primary transition-colors duration-300 hover:text-primary-dark">
-                        076-76 76 725
+                        {business.contact.phoneDisplay}
                     </a>
                     <p class="text-sm text-text-muted">Ring för att boka tid</p>
                 </div>
@@ -79,9 +80,9 @@ const { eyebrow, title, subtitle, ctaHref, ctaText } = Astro.props;
                 <Mail class="h-6 w-6 shrink-0 text-primary" />
                 <div>
                     <a
-                        href="mailto:helen@helensfotvard.se"
+                        href={`mailto:${business.contact.emailHelen}`}
                         class="block font-medium text-primary transition-colors duration-300 hover:text-primary-dark">
-                        helen@helensfotvard.se
+                        {business.contact.emailHelen}
                     </a>
                     <p class="text-sm text-text-muted">Svarar inom ett par dagar</p>
                 </div>
@@ -90,8 +91,10 @@ const { eyebrow, title, subtitle, ctaHref, ctaText } = Astro.props;
             <div class="flex items-center gap-3">
                 <MapPin class="h-6 w-6 shrink-0 text-primary" />
                 <div>
-                    <p class="text-sm font-medium text-primary">Trädgårdsgatan 14, Borgholm</p>
-                    <p class="text-sm text-text-muted">Borgholm, Öland</p>
+                    <p class="text-sm font-medium text-primary">
+                        {business.address.street}, {business.address.city}
+                    </p>
+                    <p class="text-sm text-text-muted">{business.address.city}, Öland</p>
                 </div>
             </div>
         </div>

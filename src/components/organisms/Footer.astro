@@ -1,11 +1,12 @@
 ---
 import ContactItem from '../molecules/ContactItem.astro';
+import { business } from '../../data/business';
 ---
 
 <footer class="bg-footer-bg text-footer-text py-12 px-6">
     <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-10">
         <div>
-            <h3 class="text-white text-lg font-semibold mb-3">Helens Fotvård</h3>
+            <h3 class="text-white text-lg font-semibold mb-3">{business.name}</h3>
             <p class="text-footer-text leading-relaxed">
                 Det naturliga valet för medicinsk fotvård på Öland.
             </p>
@@ -14,9 +15,15 @@ import ContactItem from '../molecules/ContactItem.astro';
         <div>
             <h3 class="text-white text-lg font-semibold mb-3">Kontakt</h3>
             <address class="not-italic text-footer-text space-y-1 leading-relaxed">
-                <ContactItem value="076-76 76 725" href="tel:+46767676725" />
-                <ContactItem value="helen@helensfotvard.se" href="mailto:helen@helensfotvard.se" />
-                <ContactItem value="Trädgårdsgatan 14, 387 31 Borgholm" />
+                <ContactItem
+                    value={business.contact.phoneDisplay}
+                    href={`tel:${business.contact.phoneRaw}`}
+                />
+                <ContactItem
+                    value={business.contact.emailHelen}
+                    href={`mailto:${business.contact.emailHelen}`}
+                />
+                <ContactItem value={business.address.display} />
             </address>
         </div>
 
@@ -31,6 +38,7 @@ import ContactItem from '../molecules/ContactItem.astro';
 
     <div
         class="max-w-5xl mx-auto mt-10 pt-6 border-t border-white/10 text-white/40 text-sm text-center">
-        &copy; {new Date().getFullYear()} Helens Fotvård. Alla rättigheter förbehållna.
+        &copy; {new Date().getFullYear()}
+        {business.name}. Alla rättigheter förbehållna.
     </div>
 </footer>
