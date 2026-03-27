@@ -26,7 +26,6 @@ const schema: Record<string, unknown>[] = [
         url: `${business.url}/tjanster/${service.slug}`,
         provider: serviceProvider,
         areaServed: { '@type': 'City', name: business.address.city },
-        ...(service.duration && { offers: { '@type': 'Offer', name: service.title } })
     }
 ];
 
@@ -59,13 +58,6 @@ if (service.faq && service.faq.length > 0) {
                         <ChevronLeft class="h-3.5 w-3.5" />
                         Alla tjänster
                     </a>
-                    {
-                        service.duration && (
-                            <p class="mb-5 text-sm font-semibold tracking-widest uppercase text-primary">
-                                {service.duration}
-                            </p>
-                        )
-                    }
                     <h1
                         transition:name={service.slug + '-title'}
                         class="text-4xl font-semibold text-text-heading md:text-5xl mb-5">

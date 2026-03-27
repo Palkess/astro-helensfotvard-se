@@ -3,10 +3,9 @@ interface Props {
     title: string;
     desc: string;
     href?: string;
-    duration?: string;
     transitionName?: string;
 }
-const { title, desc, href, duration, transitionName } = Astro.props;
+const { title, desc, href, transitionName } = Astro.props;
 ---
 
 {
@@ -20,21 +19,11 @@ const { title, desc, href, duration, transitionName } = Astro.props;
                 class="text-xl font-semibold text-text-heading mb-2">
                 {title}
             </h3>
-            {duration && (
-                <span class="inline-block text-sm text-text-body bg-surface-muted rounded-full px-3 py-1 mb-4">
-                    {duration}
-                </span>
-            )}
             <p class="text-text-body leading-relaxed">{desc}</p>
         </a>
     ) : (
         <div class="bg-card rounded-2xl p-8 border border-card-border transition-colors duration-300">
             <h3 class="text-xl font-semibold text-text-heading mb-2">{title}</h3>
-            {duration && (
-                <span class="inline-block text-sm text-text-body bg-surface-muted rounded-full px-3 py-1 mb-4">
-                    {duration}
-                </span>
-            )}
             <p class="text-text-body leading-relaxed">{desc}</p>
         </div>
     )

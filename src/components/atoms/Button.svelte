@@ -4,7 +4,7 @@
     interface Props {
         href?: string;
         size?: 'sm' | 'lg';
-        variant?: 'solid' | 'outline';
+        variant?: 'solid' | 'outline' | 'white';
         children: Snippet;
         onClick?: () => void;
     }
@@ -14,7 +14,9 @@
         const variantClass =
             variant === 'outline'
                 ? 'border border-primary text-primary hover:bg-primary hover:text-white'
-                : 'bg-primary text-white hover:bg-primary-dark shadow-sm';
+                : variant === 'white'
+                  ? 'border border-white text-white hover:bg-white hover:text-primary'
+                  : 'bg-primary text-white hover:bg-primary-dark shadow-sm';
 
         const baseClass =
             variantClass +
