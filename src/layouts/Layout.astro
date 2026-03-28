@@ -48,11 +48,16 @@ const {
         <Footer />
         <CookieConsent client:load />
         <script is:inline>
+            let isFirstLoad = true;
             document.addEventListener('astro:page-load', () => {
+                if (isFirstLoad) {
+                    isFirstLoad = false;
+                    return;
+                }
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
                     event: 'astro_page_view',
-                    page_path: window.location.pathname,
+                    page_location: window.location.href,
                     page_title: document.title,
                 });
             });
