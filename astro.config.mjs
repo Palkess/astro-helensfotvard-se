@@ -7,8 +7,11 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://beta.helensfotvard.se',
+    site: 'https://helensfotvard.se',
     integrations: [svelte()],
+    build: {
+        inlineStylesheets: 'auto'
+    },
 
     vite: {
         plugins: [tailwindcss()],

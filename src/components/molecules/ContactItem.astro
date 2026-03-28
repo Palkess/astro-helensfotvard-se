@@ -9,15 +9,27 @@ const { label, value, href } = Astro.props;
 
 <div>
     {label && <dt class="font-medium text-text-heading">{label}</dt>}
-    <dd class={label ? 'text-text-body mt-1' : 'text-footer-text'}>
-        {
-            href ? (
-                <a href={href} class="hover:text-primary transition-colors duration-300">
-                    {value}
-                </a>
-            ) : (
-                value
-            )
-        }
-    </dd>
+    {
+        label ? (
+            <dd class="text-text-body mt-1">
+                {href ? (
+                    <a href={href} class="hover:text-primary transition-colors duration-300">
+                        {value}
+                    </a>
+                ) : (
+                    value
+                )}
+            </dd>
+        ) : (
+            <p class="text-footer-text">
+                {href ? (
+                    <a href={href} class="hover:text-primary transition-colors duration-300">
+                        {value}
+                    </a>
+                ) : (
+                    value
+                )}
+            </p>
+        )
+    }
 </div>

@@ -50,6 +50,7 @@ const { eyebrow, title, subtitle, ctaHref, ctaText } = Astro.props;
                     formats={['avif', 'webp']}
                     class="absolute inset-0 h-full w-full object-cover"
                     loading="eager"
+                    fetchpriority="high"
                 />
             </div>
             <!-- Name badge -->
