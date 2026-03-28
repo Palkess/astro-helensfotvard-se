@@ -47,5 +47,15 @@ const {
         <slot />
         <Footer />
         <CookieConsent client:load />
+        <script is:inline>
+            document.addEventListener('astro:page-load', () => {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: 'astro_page_view',
+                    page_path: window.location.pathname,
+                    page_title: document.title,
+                });
+            });
+        </script>
     </body>
 </html>
