@@ -3,7 +3,7 @@ import type { Service } from './services';
 export const business = {
     name: 'Helens Fotvård',
     url: 'https://helensfotvard.se',
-    schemaType: 'Podiatrist',
+    schemaType: 'MedicalBusiness',
     description:
         'Medicinsk fotvård i Borgholm på Öland. Vi erbjuder medicinsk fotvård, fotvård med friskvård, nagelklippning och behandling av nageltrång.',
     owner: {
@@ -44,7 +44,7 @@ export const serviceProvider = {
     address: postalAddress
 } as const;
 
-/** Builds the complete Podiatrist JSON-LD for the home page */
+/** Builds the complete MedicalBusiness JSON-LD for the home page */
 export function buildLocalBusinessSchema(services: Service[]) {
     return {
         '@context': 'https://schema.org',
